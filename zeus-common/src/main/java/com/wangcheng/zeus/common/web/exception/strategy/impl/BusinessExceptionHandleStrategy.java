@@ -4,7 +4,7 @@ import com.wangcheng.zeus.common.constant.ResponseConstant;
 import com.wangcheng.zeus.common.response.ResponseModel;
 import com.wangcheng.zeus.common.web.exception.BusinessException;
 import com.wangcheng.zeus.common.web.exception.strategy.ExceptionHandleStrategy;
-import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandle;
+import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandleType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * @Date: 2018/8/30 21:52
  * @Description: 业务断言的处理策略
  */
-@ExceptionHandle(BusinessException.class)
+@ExceptionHandleType(BusinessException.class)
 public class BusinessExceptionHandleStrategy implements ExceptionHandleStrategy {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -25,6 +25,7 @@ public class BusinessExceptionHandleStrategy implements ExceptionHandleStrategy 
         for (int i = 0; i < stackTrace.length; i++) {
             System.out.println("堆栈信息："+stackTrace[i]);
         }
+        logger.info(e.getMessage());
         return ResponseModel.FAIL(ResponseConstant.BUSINESS_CODE,e.getMessage());
     }
 }

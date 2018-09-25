@@ -9,19 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/13 21:28
  * @Description:
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class UserManager {
 
     @Autowired
     private UserDao userDao;
 
     public List<User> findAll(){
-
         List<User> all = userDao.findAll();
         return all;
     }

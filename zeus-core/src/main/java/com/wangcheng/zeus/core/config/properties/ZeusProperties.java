@@ -10,7 +10,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "zeus")
 public class ZeusProperties {
 
-    private BrowserProperties browser;
+    private BrowserProperties browser = new BrowserProperties();
+
+    private ValidateCodeProperties validateCode = new ValidateCodeProperties();
 
     public BrowserProperties getBrowser() {
         return browser;
@@ -18,5 +20,13 @@ public class ZeusProperties {
 
     public void setBrowser(BrowserProperties browser) {
         this.browser = browser;
+    }
+
+    public ValidateCodeProperties getValidateCode() {
+        return validateCode;
+    }
+
+    public void setValidateCode(ValidateCodeProperties validateCode) {
+        this.validateCode = validateCode;
     }
 }

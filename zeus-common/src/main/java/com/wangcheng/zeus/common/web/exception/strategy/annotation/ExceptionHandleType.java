@@ -1,10 +1,8 @@
 package com.wangcheng.zeus.common.web.exception.strategy.annotation;
 
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.springframework.stereotype.Component;
+import java.lang.annotation.*;
 
 /**
  * @Auther: Administrator
@@ -13,6 +11,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExceptionHandle {
+@Documented
+@Component
+public @interface ExceptionHandleType {
     Class<? extends Exception>[] value();
 }

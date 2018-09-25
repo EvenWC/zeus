@@ -1,5 +1,7 @@
 package com.wangcheng.zeus.common.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangcheng.zeus.common.callback.ResponseCallBack;
 import com.wangcheng.zeus.common.constant.ResponseConstant;
@@ -9,6 +11,9 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +34,7 @@ public class ResponseModel<T> {
 
     private T data;
 
-    private Date timestamp = new Date();
+    private LocalDateTime timestamp = LocalDateTime.now();
 
     private BindingResult bindingResult;
 
@@ -173,18 +178,13 @@ public class ResponseModel<T> {
         this.data = data;
         return this;
     }
-
     @JsonView(value = SimpleInfo.class)
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public Date getTimestamp() {
-        return timestamp;
+    public String getTimestamp() {
+        return timestamp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
-
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
-
     @Override
     public String toString() {
         return "ResponseModel{" +

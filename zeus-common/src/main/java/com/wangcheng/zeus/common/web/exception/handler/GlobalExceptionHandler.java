@@ -15,79 +15,67 @@
  */
 
 package com.wangcheng.zeus.common.web.exception.handler;
+
+import com.google.common.collect.Sets;
 import com.wangcheng.zeus.common.response.ResponseModel;
-import com.wangcheng.zeus.common.web.exception.factory.ExceptionResponseFactory;
 import com.wangcheng.zeus.common.web.exception.strategy.ExceptionHandleStrategy;
-import org.springframework.boot.autoconfigure.web.*;
-import org.springframework.boot.autoconfigure.web.ErrorProperties.IncludeStacktrace;
+import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandleType;
+import com.wangcheng.zeus.common.web.exception.strategy.impl.BusinessExceptionHandleStrategy;
+import com.wangcheng.zeus.common.web.exception.strategy.impl.DefaultExceptionHandleStrategy;
+import org.springframework.beans.BeansException;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 
+/**
+ * @author wangcheng
+ */
 @RestControllerAdvice
-@RequestMapping("${server.error.path:${error.path:/error}}")
-public class GlobalExceptionHandler extends AbstractErrorController {
+public class GlobalExceptionHandler implements ApplicationContextAware {
 
-    private ErrorProperties errorProperties = new ErrorProperties();
+    private Set<ExceptionHandleStrategy> strategies = Sets.newHashSet();
 
-    public GlobalExceptionHandler(){
-        super(new DefaultErrorAttributes());
-    }
+    private DefaultExceptionHandleStrategy defaultExceptionHandleStrategy = new DefaultExceptionHandleStrategy();
 
-    public GlobalExceptionHandler(ErrorAttributes errorAttributes,
-                                ErrorProperties errorProperties) {
-        this(errorAttributes, errorProperties,
-                Collections.<ErrorViewResolver>emptyList());
-    }
+    private BusinessExceptionHandleStrategy businessExceptionHandleStrategy = new BusinessExceptionHandleStrategy();
 
-    public GlobalExceptionHandler(ErrorAttributes errorAttributes,
-                                ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
-        super(errorAttributes, errorViewResolvers);
-        Assert.notNull(errorProperties, "ErrorProperties must not be null");
-        this.errorProperties = errorProperties;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        Map<String, Object> strategyMap = applicationContext.getBeansWithAnnotation(ExceptionHandleType.class);
+        strategyMap.forEach((k,v)->{
+            if(v instanceof ExceptionHandleStrategy){
+                strategies.add((ExceptionHandleStrategy)v);
+            }else {
+                throw new RuntimeException("异常策略对象必须实现ExceptionHandleStrategy接口");
+            }
+        });
+        //默认注入业务异常处理策略和默认的异常处理策略
+        strategies.add(defaultExceptionHandleStrategy);
+        strategies.add(businessExceptionHandleStrategy);
     }
 
     @ExceptionHandler(value = {Exception.class})
     public ResponseModel handleException(Exception e){
-        ExceptionHandleStrategy exceptionHandler = ExceptionResponseFactory.INSTANCE.createExceptionHandler(e);
+        ExceptionHandleStrategy exceptionHandler = this.getExceptionHandleByException(e);
         return exceptionHandler.handle(e);
     }
-    @RequestMapping
-    public ResponseModel error(HttpServletRequest request) {
-        System.out.println(errorProperties);
-        Map<String, Object> body = getErrorAttributes(request,
-                isIncludeStackTrace(request, MediaType.ALL));
-        HttpStatus status = getStatus(request);
-        return ResponseModel.FAIL(Integer.parseInt(status.toString()),(String) body.get("message"));
-    }
-    @Override
-    public String getErrorPath() {
-        return this.errorProperties.getPath();
-    }
 
-
-    protected boolean isIncludeStackTrace(HttpServletRequest request,
-                                          MediaType produces) {
-        IncludeStacktrace include = getErrorProperties().getIncludeStacktrace();
-        if (include == IncludeStacktrace.ALWAYS) {
-            return true;
+    private ExceptionHandleStrategy getExceptionHandleByException(Exception e){
+        for (ExceptionHandleStrategy strategy : strategies) {
+            ExceptionHandleType annotation = strategy.getClass().getAnnotation(ExceptionHandleType.class);
+            Class<? extends Exception>[] value = annotation.value();
+            long count = Arrays.stream(value).filter(clz -> clz.equals(e.getClass())).count();
+            if(count > 0){
+                return strategy;
+            }
         }
-        if (include == IncludeStacktrace.ON_TRACE_PARAM) {
-            return getTraceParameter(request);
-        }
-        return false;
-    }
-
-    protected ErrorProperties getErrorProperties() {
-        return this.errorProperties;
+        return defaultExceptionHandleStrategy;
     }
 
 }

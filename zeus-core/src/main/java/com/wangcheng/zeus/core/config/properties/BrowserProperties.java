@@ -13,6 +13,8 @@ public class BrowserProperties {
 
     private LoginType loginType = LoginType.JSON;
 
+    private int rememeberMeExpireIn = 60 * 60 * 24 *5;
+
     public String getLoginPage() {
         return loginPage;
     }
@@ -27,5 +29,13 @@ public class BrowserProperties {
 
     public void setLoginType(LoginType loginType) {
         this.loginType = loginType;
+    }
+
+    public int getRememeberMeExpireIn() {
+        return rememeberMeExpireIn;
+    }
+
+    public void setRememeberMeExpireIn(int rememeberMeExpireIn) {
+        this.rememeberMeExpireIn = rememeberMeExpireIn;
     }
 }

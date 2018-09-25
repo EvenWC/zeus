@@ -1,12 +1,14 @@
 package com.wangcheng.zeus.core.config.properties.enums;
 
 /**
- * @Auther: Administrator
+ * @author Administrator
  * @Date: 2018/9/19 21:50
  * @Description:
  */
 public enum LoginType {
-
-    JSON,REDIRECT
+    /**登录方式json*/
+    JSON,
+    /**重定向*/
+    REDIRECT
 
 }

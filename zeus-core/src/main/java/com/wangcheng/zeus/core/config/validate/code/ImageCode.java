@@ -3,7 +3,7 @@ package com.wangcheng.zeus.core.config.validate.code;
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/20 21:11
  * @Description: 图片验证码
  */
@@ -15,6 +15,8 @@ public class ImageCode {
     private String code;
     /**过期时间*/
     private LocalDateTime expireTime;
+    /**需要验证码的url*/
+    private String validateUrl;
 
     public ImageCode(BufferedImage bufferedImage, String code, Long expireIn) {
         this.bufferedImage = bufferedImage;
@@ -50,6 +52,14 @@ public class ImageCode {
 
     public void setExpireTime(LocalDateTime expireTime) {
         this.expireTime = expireTime;
+    }
+
+    public String getValidateUrl() {
+        return validateUrl;
+    }
+
+    public void setValidateUrl(String validateUrl) {
+        this.validateUrl = validateUrl;
     }
 
     public boolean isExpire() {

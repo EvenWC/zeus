@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Auther: Administrator
+ * @author  Administrator
  * @Date: 2018/9/18 21:42
  * @Description:
  */
@@ -32,11 +32,9 @@ public class SecurityControl {
 
     @RequestMapping("/authentication/strategy")
     public ResponseModel signIn(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         SavedRequest savedRequest = requestCache.getRequest(request, response);
-        String redirectUrl = savedRequest.getRedirectUrl();
-
-        if(redirectUrl != null){
+        String redirectUrl;
+        if(savedRequest != null &&  (redirectUrl = savedRequest.getRedirectUrl()) != null){
             if(StringUtils.endsWithIgnoreCase(redirectUrl,".html")){
                 redirectStrategy.sendRedirect(request,response, zeusProperties.getBrowser().getLoginPage());
             }

@@ -1,4 +1,4 @@
-package com.wangcheng.zeus.common.web.exception.strategy;
+package com.wangcheng.zeus.common.web.exception;
 
 /**
  * @Auther: Administrator
@@ -6,7 +6,5 @@ package com.wangcheng.zeus.common.web.exception.strategy;
  * @Description:验证异常
  */
 public class ValidateException extends RuntimeException{
-
-
 
 }
