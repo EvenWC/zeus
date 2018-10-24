@@ -1,6 +1,8 @@
 package com.wangcheng.zeus.common.web.exception.strategy.impl;
 
 import com.wangcheng.zeus.common.response.ResponseModel;
+import com.wangcheng.zeus.common.web.exception.strategy.AbstractExceptionHandleStrategy;
+import com.wangcheng.zeus.common.web.exception.strategy.BaseExceptionHandlerStrategyAware;
 import com.wangcheng.zeus.common.web.exception.strategy.ExceptionHandleStrategy;
 import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandleType;
 import org.slf4j.Logger;
@@ -11,13 +13,13 @@ import org.slf4j.LoggerFactory;
  * @Date: 2018/9/4 21:00
  * @Description:
  */
-@ExceptionHandleType(value = {Exception.class})
-public class DefaultExceptionHandleStrategy implements ExceptionHandleStrategy {
+@ExceptionHandleType(value = {Throwable.class},name = "defaultExceptionHandleStrategy")
+public class DefaultExceptionHandleStrategy extends AbstractExceptionHandleStrategy implements BaseExceptionHandlerStrategyAware {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    public ResponseModel handle(Exception e) {
+    public ResponseModel doHandle(Throwable e) {
         //记录日志
         StackTraceElement[] stackTrace = e.getStackTrace();
         String className = stackTrace[0].getClassName();

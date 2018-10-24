@@ -3,7 +3,7 @@ package com.wangcheng.zeus.common.utils;
 import org.slf4j.helpers.MessageFormatter;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/8/29 21:00
  * @Description：工具类
  */

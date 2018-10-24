@@ -1,6 +1,6 @@
 package com.wangcheng.zeus.core.config.validate.code.manager;
 
-import com.wangcheng.zeus.core.config.validate.code.ImageCode;
+import com.wangcheng.zeus.core.config.validate.code.ValidateCode;
 
 /**
  * @author Administrator
@@ -12,14 +12,14 @@ public interface ValidateCodeManager {
      * 生成验证码
      * @return
      */
-    ImageCode  generateValidateCode();
+    ValidateCode generateValidateCode();
 
     /**
      * 检查验证码
-     * @param imageCode
+     * @param validateCode
      * @param requestValidateCode
      * @return
      */
-    Boolean checkValidateCode(ImageCode imageCode,String requestValidateCode);
+    Boolean checkValidateCode(ValidateCode validateCode,String requestValidateCode);
 
 }

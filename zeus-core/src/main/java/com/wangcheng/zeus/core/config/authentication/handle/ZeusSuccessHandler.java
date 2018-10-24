@@ -1,6 +1,7 @@
-package com.wangcheng.zeus.authentication;
+package com.wangcheng.zeus.core.config.authentication.handle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wangcheng.zeus.common.response.ResponseModel;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.properties.enums.LoginType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class ZeusSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
         if(LoginType.JSON.equals(zeusProperties.getBrowser().getLoginType())){
             response.setStatus(HttpStatus.OK.value());
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(objectMapper.writeValueAsString(authentication));
+            response.getWriter().write(objectMapper.writeValueAsString(ResponseModel.SUCCESS(authentication.getPrincipal())));
         }else {
             super.onAuthenticationSuccess(request,response,authentication);
         }

@@ -7,7 +7,7 @@
 <body>
     <h1>Demo的登陆页面</h1>
 
-    <form action="/authentication/logIn" method="post">
+    <form action="/authentication/login" method="post">
         <table>
             <tr>
                 <td>用户名：</td>
@@ -31,5 +31,25 @@
             </tr>
         </table>
     </form>
+
+    <h1>短信登录</h1>
+
+    <form action="/authentication/mobile" method="post">
+        <table>
+            <tr>
+                <td>手机号：</td>
+                <td><input name="mobile" type="text" value="12345678945" /></td>
+            </tr>
+            <tr>
+                <td>验证码：</td>
+                <td><input name="smsCode" type="text" value="1234556"/></td>
+                <td><a href="/code/sms" />发送验证码</td>
+            </tr>
+            <tr >
+                <td colspan="2">   <button  type="submit">登陆</button></td>
+            </tr>
+        </table>
+    </form>
+
 </body>
 </html>

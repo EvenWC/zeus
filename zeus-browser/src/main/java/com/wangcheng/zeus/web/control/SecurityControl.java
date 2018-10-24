@@ -1,6 +1,7 @@
 package com.wangcheng.zeus.web.control;
 
 import com.wangcheng.zeus.common.response.ResponseModel;
+import com.wangcheng.zeus.core.config.authentication.constant.ZeusSecurityConstants;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 /**
  * @author  Administrator
@@ -30,7 +32,7 @@ public class SecurityControl {
     @Autowired
     private ZeusProperties zeusProperties;
 
-    @RequestMapping("/authentication/strategy")
+    @RequestMapping(ZeusSecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
     public ResponseModel signIn(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         String redirectUrl;

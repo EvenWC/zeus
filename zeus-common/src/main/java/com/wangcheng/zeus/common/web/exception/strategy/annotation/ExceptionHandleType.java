@@ -1,6 +1,7 @@
 package com.wangcheng.zeus.common.web.exception.strategy.annotation;
 
 
+import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 import java.lang.annotation.*;
 
@@ -14,5 +15,9 @@ import java.lang.annotation.*;
 @Documented
 @Component
 public @interface ExceptionHandleType {
-    Class<? extends Exception>[] value();
+
+    Class<? extends Throwable>[] value();
+
+    @AliasFor(value = "value",annotation = Component.class)
+    String name() default "";
 }

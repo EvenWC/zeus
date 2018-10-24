@@ -1,6 +1,7 @@
-package com.wangcheng.zeus.authentication;
+package com.wangcheng.zeus.core.config.authentication.handle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wangcheng.zeus.common.response.ResponseModel;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.properties.enums.LoginType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/19 21:36
  * @Description:
  */
@@ -34,7 +35,7 @@ public class ZeusFailureHandler extends SimpleUrlAuthenticationFailureHandler {
        if(LoginType.JSON.equals(zeusProperties.getBrowser().getLoginType())){
            response.setStatus(HttpStatus.UNAUTHORIZED.value());
            response.setContentType("application/json;charset=UTF-8");
-           response.getWriter().write(objectMapper.writeValueAsString(exception));
+           response.getWriter().write(objectMapper.writeValueAsString(ResponseModel.FAIL(exception.getMessage())));
        }else {
            super.onAuthenticationFailure(request,response,exception);
        }

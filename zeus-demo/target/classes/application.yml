@@ -75,4 +75,3 @@ security:
 zeus:
   browser:
     login-page: /demo-login.html
-    login-type: REDIRECT

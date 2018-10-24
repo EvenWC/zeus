@@ -12,6 +12,8 @@
         <module name="zeus-core" />
         <module name="zeus-demo" />
         <module name="zeus-facade" />
+        <module name="zeus-mobile" />
+        <module name="zeus-starter" />
       </profile>
     </annotationProcessing>
   </component>

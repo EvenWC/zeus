@@ -16,66 +16,57 @@
 
 package com.wangcheng.zeus.common.web.exception.handler;
 
-import com.google.common.collect.Sets;
 import com.wangcheng.zeus.common.response.ResponseModel;
+import com.wangcheng.zeus.common.web.exception.holder.ExceptionHandleStrategyHolder;
 import com.wangcheng.zeus.common.web.exception.strategy.ExceptionHandleStrategy;
-import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandleType;
-import com.wangcheng.zeus.common.web.exception.strategy.impl.BusinessExceptionHandleStrategy;
-import com.wangcheng.zeus.common.web.exception.strategy.impl.DefaultExceptionHandleStrategy;
-import org.springframework.beans.BeansException;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
 
 /**
  * @author wangcheng
  */
 @RestControllerAdvice
-public class GlobalExceptionHandler implements ApplicationContextAware {
+@RestController
+@RequestMapping("/error")
+public class GlobalExceptionHandler implements ErrorController {
 
-    private Set<ExceptionHandleStrategy> strategies = Sets.newHashSet();
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private DefaultExceptionHandleStrategy defaultExceptionHandleStrategy = new DefaultExceptionHandleStrategy();
+    private  ExceptionHandleStrategyHolder strategyHolder;
 
-    private BusinessExceptionHandleStrategy businessExceptionHandleStrategy = new BusinessExceptionHandleStrategy();
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        Map<String, Object> strategyMap = applicationContext.getBeansWithAnnotation(ExceptionHandleType.class);
-        strategyMap.forEach((k,v)->{
-            if(v instanceof ExceptionHandleStrategy){
-                strategies.add((ExceptionHandleStrategy)v);
-            }else {
-                throw new RuntimeException("异常策略对象必须实现ExceptionHandleStrategy接口");
-            }
-        });
-        //默认注入业务异常处理策略和默认的异常处理策略
-        strategies.add(defaultExceptionHandleStrategy);
-        strategies.add(businessExceptionHandleStrategy);
+    public GlobalExceptionHandler(ExceptionHandleStrategyHolder strategyHolder){
+        this.strategyHolder = strategyHolder;
     }
 
-    @ExceptionHandler(value = {Exception.class})
-    public ResponseModel handleException(Exception e){
-        ExceptionHandleStrategy exceptionHandler = this.getExceptionHandleByException(e);
-        return exceptionHandler.handle(e);
+    @ExceptionHandler(value = {Throwable.class})
+    public ResponseModel handleException(HttpServletRequest request, HttpServletResponse response, Throwable e){
+        logger.info("开始处理异常："+e.getClass().getName());
+        ExceptionHandleStrategy exceptionHandler = strategyHolder.getStrategy(e);
+        logger.info("获取异常处理策略："+exceptionHandler.toString());
+        return exceptionHandler.handle(request,response,e);
     }
 
-    private ExceptionHandleStrategy getExceptionHandleByException(Exception e){
-        for (ExceptionHandleStrategy strategy : strategies) {
-            ExceptionHandleType annotation = strategy.getClass().getAnnotation(ExceptionHandleType.class);
-            Class<? extends Exception>[] value = annotation.value();
-            long count = Arrays.stream(value).filter(clz -> clz.equals(e.getClass())).count();
-            if(count > 0){
-                return strategy;
-            }
+    @GetMapping
+    public ResponseModel error(HttpServletRequest request, HttpServletResponse response){
+        Enumeration<String> attributeNames = request.getAttributeNames();
+        while (attributeNames.hasMoreElements()){
+            System.out.println(attributeNames.nextElement());
         }
-        return defaultExceptionHandleStrategy;
+        Integer httpStatus = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        String errorMessage = (String) request.getAttribute("javax.servlet.error.message");
+        if(httpStatus == null){
+            httpStatus = 500;
+        }
+        return ResponseModel.FAIL(httpStatus,errorMessage);
     }
-
+    @Override
+    public String getErrorPath() {
+        return "error";
+    }
 }

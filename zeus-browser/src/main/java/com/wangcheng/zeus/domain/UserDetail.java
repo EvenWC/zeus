@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/17 20:57
  * @Description:
  */
@@ -19,6 +19,8 @@ public class UserDetail {
     private String userName;
 
     private String password;
+
+    private String telNo;
 
     @OrderBy("id")
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
@@ -56,6 +58,11 @@ public class UserDetail {
         this.roles = roles;
     }
 
-    public void setRoles() {
+    public String getTelNo() {
+        return telNo;
+    }
+
+    public void setTelNo(String telNo) {
+        this.telNo = telNo;
     }
 }

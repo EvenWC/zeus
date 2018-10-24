@@ -2,6 +2,7 @@ package com.wangcheng.zeus.dao;
 
 import com.wangcheng.zeus.domain.UserDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -11,7 +12,6 @@ import java.util.List;
  * @Description:
  */
 public interface UserDetailDao extends JpaRepository<UserDetail,Long> {
-
-    List<UserDetail> findByUserName(String userName);
+    UserDetail findByUserNameOrTelNo(String userName,String telNo);
 
 }

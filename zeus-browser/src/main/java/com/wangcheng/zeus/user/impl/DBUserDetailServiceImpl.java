@@ -14,17 +14,19 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/17 20:47
  * @Description: 基于关系型数据库的UserDetailService
  */
-@Component
-public class DBUserDetailService implements ZeusUserDetailService {
+@Service
+public class DBUserDetailServiceImpl implements ZeusUserDetailService {
 
     @Autowired
     private UserDetailDao userDao;
@@ -34,11 +36,10 @@ public class DBUserDetailService implements ZeusUserDetailService {
 
     @Override
     public ZeusUserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        List<UserDetail> userDetails = userDao.findByUserName(userName);
-        if(CollectionUtils.isEmpty(userDetails)){
+        UserDetail userDetail = userDao.findByUserNameOrTelNo(userName,userName);
+        if(Objects.isNull(userDetail)){
             throw new UsernameNotFoundException(userName + "没有找到");
         }
-        UserDetail userDetail = userDetails.get(0);
         Set<Role> roles = userDetail.getRoles();
         List<GrantedAuthority> authorities = Lists.newLinkedList();
         roles.forEach(role -> {

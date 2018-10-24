@@ -14,12 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.wangcheng.study</groupId>
-            <artifactId>zeus-common</artifactId>
-            <version>${zeus.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wangcheng.study</groupId>
-            <artifactId>zeus-browser</artifactId>
+            <artifactId>zeus-starter</artifactId>
             <version>${zeus.version}</version>
         </dependency>
         <dependency>

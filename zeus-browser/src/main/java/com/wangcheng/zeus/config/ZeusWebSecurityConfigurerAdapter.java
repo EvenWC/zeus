@@ -1,43 +1,36 @@
 package com.wangcheng.zeus.config;
 
-import com.wangcheng.zeus.authentication.ZeusFailureHandler;
-import com.wangcheng.zeus.authentication.ZeusSuccessHandler;
+import com.wangcheng.zeus.core.config.authentication.constant.ZeusSecurityConstants;
+import com.wangcheng.zeus.core.config.authentication.handle.ZeusFailureHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.ZeusSuccessHandler;
+import com.wangcheng.zeus.core.config.authentication.mobile.AuthenticationMobileConfig;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
-import com.wangcheng.zeus.core.config.validate.code.ValidateCodeFilter;
-import com.wangcheng.zeus.remeberme.RemembermeFilter;
-import com.wangcheng.zeus.remeberme.TokenManager;
+import com.wangcheng.zeus.core.config.validate.code.config.ValidateCodeSecurityConfig;
+import com.wangcheng.zeus.core.config.validate.code.processor.ValidateCodeProcessorHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.token.KeyBasedPersistenceTokenService;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
 
 /**
- * @Auther: Administrator
+ * @author : Administrator
  * @Date: 2018/9/17 20:36
  * @Description:
  */
 
 @Configuration
-public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+public class ZeusWebSecurityConfigurerAdapter extends AbstractWebSecurityConfig {
 
     @Autowired
     private ZeusProperties zeusProperties;
-
-    @Autowired
-    private ZeusSuccessHandler zeusSuccessHandler;
-
-    @Autowired
-    private ZeusFailureHandler zeusFailureHandler;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -46,31 +39,34 @@ public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     private DataSource dataSource;
 
     @Autowired
-    private TokenManager tokenManager;
+    private AuthenticationMobileConfig authenticationMobileConfig;
+
+    @Autowired
+    private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter(zeusFailureHandler, zeusProperties);
-        RemembermeFilter remembermeFilter = new RemembermeFilter(userDetailsService,tokenManager);
-        validateCodeFilter.afterPropertiesSet();
-        http.csrf().disable().cors().and()
-             .addFilterBefore(validateCodeFilter,UsernamePasswordAuthenticationFilter.class)
-            .formLogin().loginPage("/authentication/strategy").loginProcessingUrl("/authentication/logIn")
-                .successHandler(zeusSuccessHandler)
-                .failureHandler(zeusFailureHandler)
-                .and()
+        //密码登录相关
+        applyPasswordAuthenticationConfig(http);
+
+        http
+            .apply(validateCodeSecurityConfig)
+            .and()
+            .apply(authenticationMobileConfig).and()
             .rememberMe()
                 .userDetailsService(userDetailsService)
                 .tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(zeusProperties.getBrowser().getRememeberMeExpireIn())
             .and()
                 .authorizeRequests()
-                .antMatchers("/authentication/strategy").permitAll()
-                .antMatchers("/code/image").permitAll()
-                .antMatchers(zeusProperties.getBrowser().getLoginPage()).permitAll()
+                .antMatchers(ZeusSecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                        ZeusSecurityConstants.VALIDATE_CODE_URL_PREFIX + "/*",
+                        zeusProperties.getBrowser().getLoginPage())
+                .permitAll()
                 .anyRequest()
                 .authenticated()
-            .and();
+            .and()
+            .csrf().disable().cors().and();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -81,7 +77,6 @@ public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     public PersistentTokenRepository persistentTokenRepository(){
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
-       // tokenRepository.setCreateTableOnStartup(true);
         return tokenRepository;
     }
 }

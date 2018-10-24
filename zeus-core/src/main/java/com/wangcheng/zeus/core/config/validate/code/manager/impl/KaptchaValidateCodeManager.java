@@ -5,6 +5,7 @@ import com.google.code.kaptcha.util.Config;
 import com.wangcheng.zeus.core.config.properties.ImageCodeProperties;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.validate.code.ImageCode;
+import com.wangcheng.zeus.core.config.validate.code.ValidateCode;
 import com.wangcheng.zeus.core.config.validate.code.manager.ValidateCodeManager;
 
 import java.awt.image.BufferedImage;
@@ -21,21 +22,18 @@ public class KaptchaValidateCodeManager implements ValidateCodeManager {
 
     private DefaultKaptcha kaptcha;
 
-    public KaptchaValidateCodeManager() {
-    }
-
     public KaptchaValidateCodeManager(ZeusProperties zeusProperties, DefaultKaptcha kaptcha) {
         this.zeusProperties = zeusProperties;
         this.kaptcha = kaptcha;
     }
 
     @Override
-    public ImageCode generateValidateCode() {
+    public ValidateCode generateValidateCode() {
         ImageCodeProperties imageCodeProperties = zeusProperties.getValidateCode().getImageCode();
         this.setKaptchaConfig(imageCodeProperties);
         String code = kaptcha.createText();
         BufferedImage image = kaptcha.createImage(code);
-        return new ImageCode(image,code,imageCodeProperties.getExpireIn());
+        return new ImageCode(code,imageCodeProperties.getExpireIn(),image);
     }
 
     private void setKaptchaConfig(ImageCodeProperties imageCodeProperties){
@@ -53,10 +51,9 @@ public class KaptchaValidateCodeManager implements ValidateCodeManager {
         kaptcha.setConfig(config);
     }
     @Override
-    public Boolean checkValidateCode(ImageCode imageCode, String requestValidateCode) {
-
+    public Boolean checkValidateCode(ValidateCode imageCode, String requestValidateCode) {
         //todo: 验证验证码逻辑
-
+        
         return null;
     }
     public ZeusProperties getZeusProperties() {
