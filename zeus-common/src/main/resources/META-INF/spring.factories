@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.wangcheng.zeus.common.configuration.EnableExceptionHandleAutoConfiguration,\
+com.wangcheng.zeus.common.configuration.StrategyHolderAutoConfiguration

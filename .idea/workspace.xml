@@ -5,83 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46975473-45e8-42f3-a2c5-c4d0cecf8007" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/access/ZeusInvocationSecurityMetadataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/config/AbstractWebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/constant/ZeusSecurityConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/AuthenticationMobileConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQServiceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQUserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ValidateCodeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ZeusConstans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/config/ValidateCodeSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/processor/ValidateCodeProcessorHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-starter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-starter/src/main/java/com/wangcheng/zeus/config/ZeusSecurityAutoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-starter/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/authentication/ZeusFailureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/ZeusFailureHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/authentication/ZeusSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/ZeusSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/dao/UserDetailDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/dao/UserDetailDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/domain/UserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/domain/UserDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/user/impl/DBUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/user/impl/DBUserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/web/control/SecurityControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/src/main/java/com/wangcheng/zeus/web/control/SecurityControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/authentication/ZeusFailureHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/authentication/ZeusSuccessHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/dao/UserDetailDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/dao/UserDetailDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/domain/UserDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/domain/UserDetail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/user/impl/DBUserDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/web/control/SecurityControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-browser/target/classes/com/wangcheng/zeus/web/control/SecurityControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/callback/ResponseCallBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/callback/ResponseCallBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/utils/CommonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/ValidateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/ValidateException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/ExceptionHandleStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/ExceptionHandleStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/GlobalExceptionHandlerBeanRegister.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/annotation/EnableExceptionHandle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/annotation/ExceptionHandleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/annotation/ExceptionHandleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/impl/DefaultExceptionHandleStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/impl/DefaultExceptionHandleStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/callback/ResponseCallBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/callback/ResponseCallBack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/ExceptionHandleStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/ExceptionHandleStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/GlobalExceptionHandlerBeanRegister.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/annotation/EnableExceptionHandle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/annotation/ExceptionHandleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/annotation/ExceptionHandleType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/DefaultExceptionHandleStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/DefaultExceptionHandleStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ValidateCodeProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ValidateCodeProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ImageCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ImageCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ValidateCodeControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ValidateCodeControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ValidateCodeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/ValidateCodeFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeBeanConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/manager/impl/KaptchaValidateCodeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/manager/impl/KaptchaValidateCodeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/ValidateCodeProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/ValidateCodeProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ImageCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ImageCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeBeanConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/impl/KaptchaValidateCodeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/impl/KaptchaValidateCodeManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/web/exception/ExceptionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/web/exception/ExceptionStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/resources/static/demo-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/resources/static/demo-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/DemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/DemoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/web/exception/ExceptionStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/web/exception/ExceptionStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/static/demo-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/static/demo-login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/zeus-browser/target/" />
     <ignored path="$PROJECT_DIR$/zeus-demo/target/" />
@@ -123,8 +47,8 @@
       <file leaf-file-name="QQServiceProvider.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQServiceProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="13" column="88" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
+            <state relative-caret-position="292">
+              <caret line="21" column="86" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#336#337#0" expanded="true" />
@@ -308,46 +232,6 @@
               <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
               <item name="zeus" type="462c0819:PsiDirectoryNode" />
               <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -550,8 +434,16 @@
       <workItem from="1539604468297" duration="3749000" />
       <workItem from="1539694130855" duration="2474000" />
       <workItem from="1539871560639" duration="923000" />
-      <workItem from="1540382444498" duration="3847000" />
+      <workItem from="1540382444498" duration="4110000" />
     </task>
+    <task id="LOCAL-00001" summary="qq">
+      <created>1540389841959</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540389841959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -587,11 +479,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172989000" />
+    <option name="totallyTimeSpent" value="173252000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.18229954" side_tool="true" weight="0.20462047" />
@@ -674,6 +565,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="qq" />
+    <option name="LAST_COMMIT_MESSAGE" value="qq" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -956,6 +851,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1072,8 +970,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQServiceProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="13" column="88" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
+        <state relative-caret-position="292">
+          <caret line="21" column="86" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#336#337#0" expanded="true" />
