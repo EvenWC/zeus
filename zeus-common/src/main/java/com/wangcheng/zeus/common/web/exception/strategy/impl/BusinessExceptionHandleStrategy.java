@@ -22,7 +22,7 @@ public class BusinessExceptionHandleStrategy extends AbstractExceptionHandleStra
 
     @Override
     public ResponseModel doHandle(Throwable e) {
-        logger.info(e.getMessage());
+        logger.warn(e.getMessage());
         return ResponseModel.FAIL(ResponseConstant.BUSINESS_CODE,e.getMessage());
     }
 }

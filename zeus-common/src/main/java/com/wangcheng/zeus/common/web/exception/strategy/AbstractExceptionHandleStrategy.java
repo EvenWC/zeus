@@ -17,7 +17,7 @@ public abstract class AbstractExceptionHandleStrategy implements ExceptionHandle
      * 处理异常的接口
      */
     @Override
-    public  ResponseModel handle(HttpServletRequest request, HttpServletResponse response, Throwable e){
+    public final  ResponseModel handle(HttpServletRequest request, HttpServletResponse response, Throwable e){
         preHandle( request,  response,  e);
         return doHandle(e);
     }

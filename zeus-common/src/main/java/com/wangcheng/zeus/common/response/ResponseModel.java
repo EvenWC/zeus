@@ -174,7 +174,7 @@ public class ResponseModel<T> {
         return data;
     }
 
-    public ResponseModel<T> setData(T data) {
+    private ResponseModel<T> setData(T data) {
         this.data = data;
         return this;
     }
