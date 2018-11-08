@@ -1,6 +1,7 @@
 package com.wangcheng.zeus.demo.domain;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangcheng.zeus.common.response.ResponseModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,10 +16,12 @@ import java.util.Date;
  */
 @MappedSuperclass
 public class BaseEntity implements Serializable {
+
+    @ApiModelProperty(name = "主键id",example = "1")
     private Long id;
-
+    @ApiModelProperty(name = "创建时间")
     private Date gmtCreate;
-
+    @ApiModelProperty(name = "修改时间")
     private Date gmtModify;
 
     @Id

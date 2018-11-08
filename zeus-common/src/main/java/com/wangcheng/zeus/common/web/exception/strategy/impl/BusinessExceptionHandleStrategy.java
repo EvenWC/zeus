@@ -1,11 +1,9 @@
 package com.wangcheng.zeus.common.web.exception.strategy.impl;
 
-import com.wangcheng.zeus.common.constant.ResponseConstant;
 import com.wangcheng.zeus.common.response.ResponseModel;
 import com.wangcheng.zeus.common.web.exception.BusinessException;
 import com.wangcheng.zeus.common.web.exception.strategy.AbstractExceptionHandleStrategy;
 import com.wangcheng.zeus.common.web.exception.strategy.BaseExceptionHandlerStrategyAware;
-import com.wangcheng.zeus.common.web.exception.strategy.ExceptionHandleStrategy;
 import com.wangcheng.zeus.common.web.exception.strategy.annotation.ExceptionHandleType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +21,6 @@ public class BusinessExceptionHandleStrategy extends AbstractExceptionHandleStra
     @Override
     public ResponseModel doHandle(Throwable e) {
         logger.warn(e.getMessage());
-        return ResponseModel.FAIL(ResponseConstant.BUSINESS_CODE,e.getMessage());
+        return ResponseModel.ERROR(e.getMessage());
     }
 }

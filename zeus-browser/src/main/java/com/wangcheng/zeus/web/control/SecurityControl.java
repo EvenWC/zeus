@@ -18,7 +18,7 @@ import java.io.IOException;
 
 
 /**
- * @author  Administrator
+ * @author  evan
  * @Date: 2018/9/18 21:42
  * @Description:
  */
@@ -41,6 +41,6 @@ public class SecurityControl {
                 redirectStrategy.sendRedirect(request,response, zeusProperties.getBrowser().getLoginPage());
             }
         }
-        return ResponseModel.FAIL(401,"未登陆");
+        return ResponseModel.UNAUTHORIZED();
     }
 }

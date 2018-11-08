@@ -32,6 +32,6 @@ public class DefaultExceptionHandleStrategy extends AbstractExceptionHandleStrat
         sb.append("methodName:" +methodName +"\n");
         sb.append("isNativeMethod:" +nativeMethod +"\n");
         logger.error(sb.toString(),e);
-        return ResponseModel.FAIL(e.getMessage());
+        return ResponseModel.ERROR(e.getMessage());
     }
 }

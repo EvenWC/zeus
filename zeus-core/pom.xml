@@ -65,6 +65,16 @@
             <artifactId>kaptcha</artifactId>
             <version>2.3.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
         <!--实现第三方登录依赖spring-social 相关的jar包-->
         <dependency>
             <groupId>org.springframework.social</groupId>

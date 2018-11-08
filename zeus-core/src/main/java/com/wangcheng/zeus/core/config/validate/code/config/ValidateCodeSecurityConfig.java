@@ -1,7 +1,6 @@
 package com.wangcheng.zeus.core.config.validate.code.config;
 
 import com.wangcheng.zeus.core.config.authentication.handle.ZeusFailureHandler;
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusSuccessHandler;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.validate.code.ValidateCodeFilter;
 import com.wangcheng.zeus.core.config.validate.code.processor.ValidateCodeProcessorHolder;

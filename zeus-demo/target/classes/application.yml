@@ -75,3 +75,7 @@ security:
 zeus:
   browser:
     login-page: /demo-login.html
+  social:
+    qq:
+      appId: 123
+      appSecret: 123

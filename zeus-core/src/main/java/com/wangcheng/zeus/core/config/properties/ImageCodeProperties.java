@@ -7,7 +7,7 @@ package com.wangcheng.zeus.core.config.properties;
  */
 public class ImageCodeProperties {
     /**需要验证码的url*/
-    private String urls         =        "/authentication/logIn,/user";
+    private String urls         =        "/authentication/logIn";
     /**过期时间*/
     private long expireIn       =         30;
     /**图片高度*/

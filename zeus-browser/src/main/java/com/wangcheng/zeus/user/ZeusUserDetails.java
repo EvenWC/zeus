@@ -2,6 +2,7 @@ package com.wangcheng.zeus.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.social.security.SocialUserDetails;
 
 import java.util.Collection;
 
@@ -10,7 +11,10 @@ import java.util.Collection;
  * @Date: 2018/9/17 20:40
  * @Description:
  */
-public class ZeusUserDetails implements UserDetails {
+public class ZeusUserDetails implements UserDetails ,SocialUserDetails {
+
+    /**用户id*/
+    private String userId;
     /**用户名*/
     private String username;
     /**密码*/
@@ -29,7 +33,8 @@ public class ZeusUserDetails implements UserDetails {
     public ZeusUserDetails() {
     }
 
-    public ZeusUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public ZeusUserDetails(String userId,String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.authorities = authorities;
@@ -97,4 +102,8 @@ public class ZeusUserDetails implements UserDetails {
         this.enabled = enabled;
     }
 
+    @Override
+    public String getUserId() {
+        return userId;
+    }
 }

@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @Auther: Administrator
+ * @author : evan
  * @Date: 2018/9/13 21:23
  * @Description:
  */
@@ -18,19 +18,19 @@ import javax.persistence.Table;
 @Entity
 @ApiModel("用户信息")
 public class User extends BaseEntity{
-    @ApiModelProperty(value = "姓名")
+    @ApiModelProperty(name = "姓名")
     private String name;
-    @ApiModelProperty(value = "用户名")
-    private String userName;
-    @ApiModelProperty(value = "密码")
+    @ApiModelProperty(name = "用户名")
+    private String username;
+    @ApiModelProperty(name = "密码")
     private String password;
-    @ApiModelProperty(value = "性别")
+    @ApiModelProperty(name = "性别")
     private String gender;
-    @ApiModelProperty(value = "年龄")
+    @ApiModelProperty(name = "年龄")
     private String age;
-    @ApiModelProperty(value = "邮箱")
+    @ApiModelProperty(name = "邮箱")
     private String email;
-    @ApiModelProperty(value = "电话号码")
+    @ApiModelProperty(name = "电话号码")
     private String telNo;
     @JsonView(value =  ResponseModel.SimpleInfo.class)
     public String getName() {
@@ -85,11 +85,12 @@ public class User extends BaseEntity{
         this.telNo = telNo;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
 }

@@ -19,8 +19,8 @@ import java.util.List;
  * @Date: 2018/9/16 10:05
  * @Description: 处理文件上传下载
  */
-@RestController
-@RequestMapping(value = "file")
+//@RestController
+//@RequestMapping(value = "file")
 public class FileControl {
 
     private String path = "H://test";

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @Description:使用切片进行拦截
  */
 @Aspect
-@Component
+//@Component
 public class ControlAspect {
 
     @Around("execution(* com.wangcheng.zeus.demo.web.control.*.*(*) )")
@@ -26,7 +26,7 @@ public class ControlAspect {
         try {
             proceed = pjp.proceed();
         } catch (Throwable throwable) {
-            System.out.println(throwable.getMessage());
+            throw new RuntimeException("切片异常");
         }
         System.out.println(proceed);
         System.out.println("aspect time :"+(System.currentTimeMillis() - start));

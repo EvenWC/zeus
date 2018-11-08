@@ -19,6 +19,6 @@ public class ExceptionStrategy extends AbstractExceptionHandleStrategy {
 
         System.out.println(e.getMessage());
 
-        return ResponseModel.FAIL(e.getMessage());
+        return ResponseModel.ERROR(e.getMessage());
     }
 }

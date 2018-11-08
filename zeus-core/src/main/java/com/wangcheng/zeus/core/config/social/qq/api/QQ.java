@@ -13,5 +13,5 @@ public interface QQ {
      * @return
      * @throws IOException
      */
-    QQUserInfo getQQUserInfo() throws IOException;
+    QQUserInfo getQQUserInfo();
 }

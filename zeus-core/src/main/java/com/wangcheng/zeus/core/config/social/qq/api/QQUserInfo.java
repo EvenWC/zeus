@@ -33,6 +33,8 @@ public class QQUserInfo {
 
     /**性别。 如果获取不到则默认返回"男"*/
     private String gender;
+    /**在qq系统中的用户id*/
+    private String openId;
 
     public Integer getRet() {
         return ret;
@@ -104,5 +106,13 @@ public class QQUserInfo {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 }

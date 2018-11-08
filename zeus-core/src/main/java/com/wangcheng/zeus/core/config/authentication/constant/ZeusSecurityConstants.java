@@ -8,8 +8,10 @@ package com.wangcheng.zeus.core.config.authentication.constant;
 public interface ZeusSecurityConstants {
     /**未登陆跳转到的url*/
     String DEFAULT_UNAUTHENTICATION_URL = "/authentication/require";
-    /**浏览器登陆的url*/
+    /**使用spring security 默认的浏览器登陆的url*/
     String DEFAULT_LOGIN_PROCESSING_URL_FORM = "/authentication/login";
+    /**自定义登陆的url*/
+    String ACCOUNT_LOGIN_PROCESSING_URL_FORM = "/account/login";
     /**手机登陆的url*/
     String DEFAULT_LOGIN_PROCESSING_URL_MOBILE = "/authentication/mobile";
     /**验证码前缀*/

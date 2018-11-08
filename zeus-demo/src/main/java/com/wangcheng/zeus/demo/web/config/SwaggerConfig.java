@@ -23,17 +23,16 @@ public class SwaggerConfig {
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.wangcheng.zeus"))
+                .apis(RequestHandlerSelectors.basePackage("com.wangcheng.zeus.demo.web.control"))
                 .paths(PathSelectors.any()).build();
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("janis Manage Swagger RESTful APIs")
+        return new ApiInfoBuilder().title("evan Manage Swagger RESTful APIs")
                 .description("综合管理 Swagger API 服务")
                 .termsOfServiceUrl("http://swagger.io/")
-                .contact(new Contact("janis", "127.0.0.1", "janis@163.com.cn"))
+                .contact(new Contact("evan", "127.0.0.1", "evan@163.com.cn"))
                 .version("1.0")
                 .build();
-
     }
 }

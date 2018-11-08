@@ -13,6 +13,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SocialUserDetails;
+import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -21,25 +23,40 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @author : Administrator
+ * @author : evan
  * @Date: 2018/9/17 20:47
  * @Description: 基于关系型数据库的UserDetailService
  */
 @Service
-public class DBUserDetailServiceImpl implements ZeusUserDetailService {
+public class UserDetailServiceImpl implements ZeusUserDetailService ,SocialUserDetailsService {
 
     @Autowired
     private UserDetailDao userDao;
 
-    @Autowired
+   // @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
     public ZeusUserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserDetail userDetail = userDao.findByUserNameOrTelNo(userName,userName);
-        if(Objects.isNull(userDetail)){
+        UserDetail user = userDao.findByUsernameOrTelNo(userName,userName);
+        if(Objects.isNull(user)){
             throw new UsernameNotFoundException(userName + "没有找到");
         }
+        return buildZeusUserDetails( user);
+    }
+
+
+
+    @Override
+    public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        UserDetail user = userDao.findOne(Long.valueOf(userId));
+        if(Objects.isNull(user)){
+            throw new UsernameNotFoundException(userId + "没有找到");
+        }
+        return buildZeusUserDetails( user);
+    }
+
+    private ZeusUserDetails buildZeusUserDetails( UserDetail userDetail) {
         Set<Role> roles = userDetail.getRoles();
         List<GrantedAuthority> authorities = Lists.newLinkedList();
         roles.forEach(role -> {
@@ -49,8 +66,6 @@ public class DBUserDetailServiceImpl implements ZeusUserDetailService {
             String resourceString = Joiner.on(",").join(resourceList);
             authorities.add(new SimpleGrantedAuthority(resourceString));
         });
-
-        ZeusUserDetails zeusUserDetails = new ZeusUserDetails(userDetail.getUserName(),passwordEncoder.encode(userDetail.getPassword()),authorities);
-        return zeusUserDetails;
+        return  new ZeusUserDetails(userDetail.getId() + "",userDetail.getUsername(),userDetail.getPassword(),authorities);
     }
 }

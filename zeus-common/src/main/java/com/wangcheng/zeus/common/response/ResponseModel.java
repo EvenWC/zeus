@@ -1,24 +1,15 @@
 package com.wangcheng.zeus.common.response;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.wangcheng.zeus.common.callback.ResponseCallBack;
-import com.wangcheng.zeus.common.constant.ResponseConstant;
-import com.wangcheng.zeus.common.utils.CommonUtils;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.util.CollectionUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
+import java.util.Objects;
 
 /**
- * @Auther: Administrator
+ * @author : evan
  * @Date: 2018/8/28 20:49
  * @Description: 提供给control 统一返回的模型对象
  */
@@ -28,130 +19,64 @@ public class ResponseModel<T> {
 
     public interface SimpleDetailInfo extends SimpleInfo{}
 
-    private String message = ResponseConstant.SUCCESS_MESSAGE;
+    private ModelStatus status = ModelStatus.OK;
 
-    private int code = ResponseConstant.SUCCESS_CODE;
+    private Integer code;
+
+    private String message;
 
     private T data;
 
     private LocalDateTime timestamp = LocalDateTime.now();
 
-    private BindingResult bindingResult;
-
     private ResponseModel(){}
-
-    public static <T> ResponseModel<T>  init(){return new ResponseModel();}
-
-    public static <T> ResponseModel<T> init(BindingResult bindingResult){
-      return  ResponseModel.<T>init().setBindingResult(bindingResult);
+    private ResponseModel(Integer code,String message){
+        this.code = code;
+        this.message = message;
     }
-
-    public  ResponseModel setBindingResult(BindingResult bindingResult) {
-        this.bindingResult = bindingResult;
-        return this;
+    private static <T> ResponseModel<T>  init(){
+        return new ResponseModel<>();
     }
-
-    /**
-     * 处理业务
-     * @param callBack 处理业务方法的回调
-     * @return 处理的结果
-     */
-    public ResponseModel<T> handle(ResponseCallBack<T> callBack){
-        this.doValidate();
-        if(this.code == ResponseConstant.VALIDATE_ERROR_CODE){
-           return callBack.fail(this);
-        }else {
-           return callBack.success(this);
-        }
+    private static <T> ResponseModel<T>  init(Integer code,String message){
+        return new ResponseModel<>(code,message);
     }
-
-    /**
-     * 提供提供设置message和data的SUCCESS
-     * @param message
-     * @param <T>
-     * @return
-     */
-    public static <T>ResponseModel<T> SUCCESS(String message,T t){
-        return ResponseModel.<T>init().setMessage(message).setData(t);
+    public static ResponseModel SUCCESS(){
+        return ResponseModel.init().setStatus(ModelStatus.NO_CONTENT);
     }
-
-    /**
-     * 直接提供设置data的SUCCESS
-     * @param t
-     * @param <T>
-     * @return
-     */
     public static <T>ResponseModel<T> SUCCESS(T t){
         return ResponseModel.<T>init().setData(t);
     }
-
-    /**
-     * 提供设置code和编码错误的方法
-     * @param code
-     * @param message
-     * @param <T>
-     * @return
-     */
-    public static <T>ResponseModel<T> FAIL(int code,String message){
-        return ResponseModel.<T>init().setMessage(CommonUtils.format(ResponseConstant.FAIL_MESSAGE,message)).setCode(code);
+    public static ResponseModel NOT_MODIFIED(){
+        return ResponseModel.init().setStatus(ModelStatus.NOT_MODIFIED);
     }
-
-    /**
-     * 直接提供设置失败信息的方法
-     * @param message
-     * @param <T>
-     * @return
-     */
-    public static <T>ResponseModel<T> FAIL(String message){
-        return ResponseModel.<T>init().setMessage(CommonUtils.format(ResponseConstant.FAIL_MESSAGE,message)).setCode(ResponseConstant.FAIL_CODE);
+    public static ResponseModel ERROR(Integer code,String message){
+        //错误码必须在500段
+        Assert.isTrue(code >= 500 && code < 600,"错误码必须在500段");
+        return ResponseModel.init(code,message).setStatus(ModelStatus.ERROR);
     }
-
-    /**
-     * 使用默认的操作失败的方法
-     * @param <T>
-     * @return
-     */
-    public static  <T>ResponseModel<T> FAIL(){
-        return ResponseModel.FAIL("操作失败");
+    public static ResponseModel ERROR(String message){
+        return ResponseModel.init().setMessage(message).setStatus(ModelStatus.ERROR);
     }
-
-
-    /**
-     * 和init(BindingResult bindingResult)方法绑定
-     * 如果传入了bindingResult ,那么对请求参数进行验证
-     */
-    private void doValidate(){
-        if( this.bindingResult != null && this.bindingResult.getErrorCount() > 0){
-            this.setCode(ResponseConstant.VALIDATE_ERROR_CODE);
-            StringBuffer buffer = new StringBuffer("[");
-            List<FieldError> fieldErrors = this.bindingResult.getFieldErrors();
-            if(!CollectionUtils.isEmpty(fieldErrors)){
-                fieldErrors.forEach(
-                    (error)->{
-                        String field = error.getField();
-                        Object message = error.getDefaultMessage();
-                        buffer.append("{");
-                        buffer.append("\"key\":\""+ field +"\"");
-                        buffer.append("\"value\":\""+ message +"\"");
-                        buffer.append("},");
-                    }
-                );
-            }
-            List<ObjectError> globalErrors = this.bindingResult.getGlobalErrors();
-            if(!CollectionUtils.isEmpty(globalErrors)){
-                globalErrors.forEach((error->{
-                    buffer.append("{");
-                    buffer.append("\"key\":\"提示\"");
-                    buffer.append("\"value\":\""+error.getDefaultMessage()+"\"");
-                    buffer.append("},");
-                }));
-            }
-            String substring = buffer.substring(0, buffer.length() - 1) + "]";
-            this.setMessage(CommonUtils.format(ResponseConstant.VALIDATE_ERROR_MESSAGE,substring));
-        }
+    public static  ResponseModel ERROR(){
+        return ResponseModel.init().setStatus(ModelStatus.ERROR);
+    }
+    public static ResponseModel UNAUTHORIZED(){
+        return ResponseModel.init().setStatus(ModelStatus.UNAUTHORIZED);
+    }
+    public static ResponseModel FORBIDDEN(){
+        return ResponseModel.init().setStatus(ModelStatus.FORBIDDEN);
+    }
+    public static ResponseModel BAD_REQUEST(){
+        return ResponseModel.init().setStatus(ModelStatus.BAD_REQUEST);
+    }
+    public static ResponseModel NOT_FOUND(){
+        return ResponseModel.init().setStatus(ModelStatus.NOT_FOUND);
     }
     @JsonView(value = SimpleInfo.class)
     public String getMessage() {
+        if(StringUtils.isEmpty(message)){
+            return status.getMessage();
+        }
         return message;
     }
 
@@ -162,13 +87,15 @@ public class ResponseModel<T> {
 
     @JsonView(value = SimpleInfo.class)
     public int getCode() {
+        if(Objects.isNull(code)){
+            return status.getCode();
+        }
         return code;
     }
-
-    public ResponseModel<T> setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
-        return this;
     }
+
     @JsonView(value = SimpleInfo.class)
     public T getData() {
         return data;
@@ -182,9 +109,11 @@ public class ResponseModel<T> {
     public String getTimestamp() {
         return timestamp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    private ResponseModel<T> setStatus(ModelStatus status) {
+        this.status = status;
+        return this;
     }
+
     @Override
     public String toString() {
         return "ResponseModel{" +
@@ -192,5 +121,52 @@ public class ResponseModel<T> {
                 ", code=" + code +
                 ", data=" + data +
                 '}';
+    }
+
+    enum  ModelStatus{
+        /**
+         * 表示从客户端发来的请求在服务器端被正确处理
+         */
+        OK(200,"success"),
+        /**
+         *  服务器发生预料之外的错误
+         */
+        ERROR(500,"internal.sever.error"),
+        /**
+         * 请求成功，但响应报文不含实体的主体部分
+         */
+        NO_CONTENT(204,"no content"),
+        /**
+         * 表示服务器允许访问资源，但因发生请求未满足条件的情况
+         */
+        NOT_MODIFIED(304,"not modified"),
+        /**
+         * 语义有误，当前请求无法被服务器理解。
+         */
+        BAD_REQUEST(400,"bad request"),
+        /**
+         * 未登陆
+         */
+        UNAUTHORIZED(401,"unauthorized"),
+        /**
+         * 访问被拒绝
+         */
+        FORBIDDEN(403,"forbidden"),
+        /**
+         * 404
+         */
+        NOT_FOUND(404,"not found");
+        private int code;
+        private String message;
+        ModelStatus(int code,String message){
+            this.code = code;
+            this.message = message;
+        }
+        public int getCode() {
+            return code;
+        }
+        public String getMessage() {
+            return message;
+        }
     }
 }

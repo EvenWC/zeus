@@ -1,5 +1,6 @@
 package com.wangcheng.zeus.core.config.authentication.mobile;
 
+import com.wangcheng.zeus.core.config.authentication.constant.ZeusSecurityConstants;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -23,7 +24,7 @@ public class SmsAuthenticationFilter  extends AbstractAuthenticationProcessingFi
 
 
     public SmsAuthenticationFilter() {
-        super(new AntPathRequestMatcher("/authentication/mobile", "POST"));
+        super(new AntPathRequestMatcher(ZeusSecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE, "POST"));
     }
 
     @Override
@@ -81,8 +82,8 @@ public class SmsAuthenticationFilter  extends AbstractAuthenticationProcessingFi
      *
      * @param mobileParameter the parameter name. Defaults to "mobile".
      */
-    public void setUsernameParameter(String mobileParameter) {
-        Assert.hasText(mobileParameter, "Username parameter must not be empty or null");
+    public void setMobileParameter(String mobileParameter) {
+        Assert.hasText(mobileParameter, "mobile parameter must not be empty or null");
         this.mobileParameter = mobileParameter;
     }
 

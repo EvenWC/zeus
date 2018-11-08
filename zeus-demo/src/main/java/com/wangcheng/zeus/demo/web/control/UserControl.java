@@ -8,17 +8,19 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
- * @Auther: Administrator
+ * @author : evan
  * @Date: 2018/9/13 21:22
  * @Description:
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping(value = "/users")
 @Api(description = "用户管理")
 public class UserControl {
 
@@ -35,13 +37,13 @@ public class UserControl {
     @GetMapping(value = "/{id}")
     @JsonView(value = ResponseModel.SimpleDetailInfo.class)
     @ApiOperation("通过用id查询用户")
-    public ResponseModel<User> find(@ApiParam("用户id") @PathVariable Long id){
+    public ResponseModel<User> find(@PathVariable Long id){
         return ResponseModel.SUCCESS(userManager.find(id));
     }
 
     @PostMapping
     @ApiOperation("新增用户")
-    public ResponseModel<Boolean> add(User user){
+    public ResponseModel<Boolean> add(@RequestBody User user){
         return ResponseModel.SUCCESS(userManager.add(user));
     }
     @PutMapping
@@ -51,7 +53,7 @@ public class UserControl {
     }
     @DeleteMapping("/{id}")
     @ApiOperation("删除用户")
-    public ResponseModel<Boolean> delete(@ApiParam("用户id")@PathVariable Long id){
+    public ResponseModel<Boolean> delete(@PathVariable Long id){
         return ResponseModel.SUCCESS(userManager.delete(id));
     }
 

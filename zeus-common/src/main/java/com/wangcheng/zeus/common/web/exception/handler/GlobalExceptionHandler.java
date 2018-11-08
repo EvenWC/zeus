@@ -54,16 +54,13 @@ public class GlobalExceptionHandler implements ErrorController {
 
     @GetMapping
     public ResponseModel error(HttpServletRequest request, HttpServletResponse response){
-        Enumeration<String> attributeNames = request.getAttributeNames();
-        while (attributeNames.hasMoreElements()){
-            System.out.println(attributeNames.nextElement());
-        }
+        response.setStatus(HttpServletResponse.SC_OK);
         Integer httpStatus = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String errorMessage = (String) request.getAttribute("javax.servlet.error.message");
         if(httpStatus == null){
             httpStatus = 500;
         }
-        return ResponseModel.FAIL(httpStatus,errorMessage);
+        return ResponseModel.ERROR(httpStatus,errorMessage);
     }
     @Override
     public String getErrorPath() {

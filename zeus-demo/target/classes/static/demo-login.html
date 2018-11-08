@@ -7,11 +7,11 @@
 <body>
     <h1>Demo的登陆页面</h1>
 
-    <form action="/authentication/login" method="post">
+    <form action="/account/login" method="post">
         <table>
             <tr>
                 <td>用户名：</td>
-                <td><input name="username" type="text" /></td>
+                <td><input name="account" type="text" /></td>
             </tr>
             <tr>
                 <td>密码：</td>
@@ -19,7 +19,7 @@
             </tr>
             <tr >
                 <td>验证码：</td>
-                <td> <input name="imageCode" /><img src="/code/image"></td>
+                <td> <input name="validateCode" /><img src="/code/image"></td>
             </tr>
             <tr >
 
@@ -51,5 +51,7 @@
         </table>
     </form>
 
+    <h1>社交登录</h1>
+    <a  href="/auth/qq">qq登录</a>
 </body>
 </html>
