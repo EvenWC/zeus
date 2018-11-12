@@ -1,6 +1,7 @@
 package com.wangcheng.zeus.common.web.exception.register;
 
 import com.wangcheng.zeus.common.web.exception.handler.GlobalExceptionHandler;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -31,7 +32,7 @@ public class EnableExceptionHandlerRegister implements ImportBeanDefinitionRegis
             if(disabled){
                 beanDefinitionRegistry.removeBeanDefinition(handlerName);
             }
-        }catch (Exception e){
+        }catch (NoSuchBeanDefinitionException e){
             if(!disabled){
                 BeanDefinitionBuilder bdb = BeanDefinitionBuilder.rootBeanDefinition(GlobalExceptionHandler.class);
                 AbstractBeanDefinition beanDefinition = bdb.getBeanDefinition();

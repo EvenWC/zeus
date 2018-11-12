@@ -48,13 +48,11 @@ public class ZeusAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String requestURI = request.getRequestURI();
-        List<String> excludeURIs = zeusProperties.getExcludeURIs();
-        if(CollectionUtils.isNotEmpty(excludeURIs)){
-            for (String uri :excludeURIs) {
-                if(antPathMatcher.match(uri,requestURI)){
-                    filterChain.doFilter(request,response);
-                    return;
-                }
+        String[] excludeURIs = zeusProperties.getExcludeURIs();
+        for (String uri :excludeURIs) {
+            if(antPathMatcher.match(uri,requestURI)){
+                filterChain.doFilter(request,response);
+                return;
             }
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -65,19 +63,19 @@ public class ZeusAuthenticationFilter extends OncePerRequestFilter {
         String token = TokenUtils.getToken(request);
         BrowserProperties browser = zeusProperties.getBrowser();
         if(StringUtils.isEmpty(token)){
-            HttpResponseUtils.printJson(response,ResponseModel.UNAUTHORIZED());
+            HttpResponseUtils.printJson(response,ResponseModel.ACCESS_FORBIDDEN("未登陆"));
             return;
         }
         Claims claims;
         try {
             claims = TokenUtils.parseClaims(token, browser.getSecret());
         } catch (ExpiredJwtException e) {
-            HttpResponseUtils.printJson(response,ResponseModel.FORBIDDEN());
+            HttpResponseUtils.printJson(response,ResponseModel.ACCESS_FORBIDDEN("登录过期"));
             return;
         }
         String username = claims.get("username", String.class);
         if(StringUtils.isEmpty(username)){
-            HttpResponseUtils.printJson(response,ResponseModel.FORBIDDEN());
+            HttpResponseUtils.printJson(response,ResponseModel.ACCESS_FORBIDDEN("非法请求"));
             return;
         }
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);

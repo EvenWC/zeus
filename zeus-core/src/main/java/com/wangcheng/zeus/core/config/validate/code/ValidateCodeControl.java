@@ -9,6 +9,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -26,6 +27,8 @@ public class ValidateCodeControl {
 
     @GetMapping("code/{type}")
     public void createImage(@PathVariable("type")String type , HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        System.out.println(session);
         validateCodeProcessors.get(type+"CodeProcessor").createValidateCode(new ServletWebRequest(request,response));
     }
 }

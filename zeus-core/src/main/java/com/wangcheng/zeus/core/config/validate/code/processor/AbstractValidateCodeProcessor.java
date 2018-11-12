@@ -1,18 +1,18 @@
 package com.wangcheng.zeus.core.config.validate.code.processor;
 
-import com.wangcheng.zeus.common.web.exception.ValidateException;
+import com.wangcheng.zeus.core.config.utils.JsonUtils;
 import com.wangcheng.zeus.core.config.validate.code.ValidateCode;
 import com.wangcheng.zeus.core.config.validate.code.exception.ValidateCodeException;
 import com.wangcheng.zeus.core.config.validate.code.manager.ValidateCodeManager;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
 
@@ -68,7 +68,19 @@ public abstract class AbstractValidateCodeProcessor implements ValidateCodeProce
         //从session中获取验证码
         ValidateCode codeInSession = (ValidateCode)sessionStrategy.getAttribute(servletWebRequest, SESSION_VALIDATE_CODE_PREFIX + validateCodeType.toUpperCase());
         //从请求中获取验证码
-        String requestCode = ServletRequestUtils.getStringParameter(servletWebRequest.getRequest(), validateCodeType + VALIDATE_CODE_PARAMETER_SUFFIX);
+        String paramKey = validateCodeType + VALIDATE_CODE_PARAMETER_SUFFIX;
+        String contentType = servletWebRequest.getRequest().getContentType();
+        String requestCode;
+        if(StringUtils.startsWithIgnoreCase(contentType,MediaType.APPLICATION_JSON_VALUE)){
+            try {
+                Map body = JsonUtils.readValue(servletWebRequest.getRequest().getInputStream(), Map.class);
+                requestCode = (String) body.get(paramKey);
+            } catch (IOException e) {
+                throw new IllegalArgumentException("body is null",e);
+            }
+        }else{
+             requestCode = ServletRequestUtils.getStringParameter(servletWebRequest.getRequest(), paramKey);
+        }
         if(StringUtils.isEmpty(requestCode)){
             throw new ValidateCodeException("验证码不能为空");
         }

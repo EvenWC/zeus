@@ -1,6 +1,6 @@
 package com.wangcheng.zeus.core.config.authentication.mobile;
 
-import com.wangcheng.zeus.core.config.authentication.constant.ZeusSecurityConstants;
+import com.wangcheng.zeus.core.config.constant.ZeusSecurityConstants;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
