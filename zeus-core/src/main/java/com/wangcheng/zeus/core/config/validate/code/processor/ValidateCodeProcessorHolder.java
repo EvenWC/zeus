@@ -1,6 +1,5 @@
 package com.wangcheng.zeus.core.config.validate.code.processor;
 
-import com.wangcheng.zeus.core.config.validate.code.ValidateCode;
 import com.wangcheng.zeus.core.config.validate.code.ValidateCodeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

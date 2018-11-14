@@ -1,5 +1,7 @@
 package com.wangcheng.zeus.core.config.validate.code.processor;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Maps;
 import com.wangcheng.zeus.core.config.utils.JsonUtils;
 import com.wangcheng.zeus.core.config.validate.code.ValidateCode;
 import com.wangcheng.zeus.core.config.validate.code.exception.ValidateCodeException;
@@ -24,6 +26,11 @@ import java.util.Map;
 public abstract class AbstractValidateCodeProcessor implements ValidateCodeProcessor {
 
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
+    /**
+     * 缓存验证码：key 是token
+     * todo:暂时先放到map里面,后续考虑使用redis
+     */
+    private Map<String,ValidateCode> validateCodeHolder = Maps.newConcurrentMap();
 
     @Autowired
     private Map<String,ValidateCodeManager> validateCodeManagers;
@@ -34,19 +41,17 @@ public abstract class AbstractValidateCodeProcessor implements ValidateCodeProce
         String processorType = getValidateCodeType();
         ValidateCodeManager validateCodeManager = validateCodeManagers.get(processorType + "CodeManager");
         ValidateCode validateCode = validateCodeManager.generateValidateCode();
-        saveSession(validateCode,servletWebRequest,processorType);
+        saveValidate(validateCode);
         sendValidateCode(validateCode,servletWebRequest);
     }
 
     /**
-     * 保存进session
+     * 保存验证码
      * @param validateCode
-     * @param servletWebRequest
      */
-    private void saveSession(ValidateCode validateCode , ServletWebRequest servletWebRequest,String type){
-        sessionStrategy.setAttribute(servletWebRequest,SESSION_VALIDATE_CODE_PREFIX + type.toUpperCase(),validateCode);
+    private void saveValidate(ValidateCode validateCode){
+        validateCodeHolder.put(validateCode.getToken(),validateCode);
     }
-
     /**
      * 发生验证码
      * @param validateCode
@@ -63,37 +68,44 @@ public abstract class AbstractValidateCodeProcessor implements ValidateCodeProce
 
     @Override
     public void validateCode(ServletWebRequest servletWebRequest) throws ServletRequestBindingException {
-
         String validateCodeType = getValidateCodeType();
-        //从session中获取验证码
-        ValidateCode codeInSession = (ValidateCode)sessionStrategy.getAttribute(servletWebRequest, SESSION_VALIDATE_CODE_PREFIX + validateCodeType.toUpperCase());
-        //从请求中获取验证码
-        String paramKey = validateCodeType + VALIDATE_CODE_PARAMETER_SUFFIX;
+        //从请求中获取验证码和验证码token
+        String validateCodeKey = validateCodeType + VALIDATE_CODE_PARAMETER_SUFFIX;
+        String validateTokenKey = validateCodeType + VALIDATE_TOKEN_PARAMETER_SUFFIX;
         String contentType = servletWebRequest.getRequest().getContentType();
         String requestCode;
+        String validateToken;
         if(StringUtils.startsWithIgnoreCase(contentType,MediaType.APPLICATION_JSON_VALUE)){
             try {
                 Map body = JsonUtils.readValue(servletWebRequest.getRequest().getInputStream(), Map.class);
-                requestCode = (String) body.get(paramKey);
+                requestCode = (String) body.get(validateCodeKey);
+                validateToken = (String) body.get(validateTokenKey);
             } catch (IOException e) {
                 throw new IllegalArgumentException("body is null",e);
             }
         }else{
-             requestCode = ServletRequestUtils.getStringParameter(servletWebRequest.getRequest(), paramKey);
+            requestCode = ServletRequestUtils.getStringParameter(servletWebRequest.getRequest(), validateCodeKey);
+            validateToken = ServletRequestUtils.getStringParameter(servletWebRequest.getRequest(), validateTokenKey);
         }
+        if(StringUtils.isEmpty(validateToken)){
+            throw new IllegalArgumentException(String.format("参数%s不能为空",validateTokenKey));
+        }
+        //从holder中获取验证码
+        ValidateCode validateCodeInHolder = validateCodeHolder.get(validateToken);
+
         if(StringUtils.isEmpty(requestCode)){
             throw new ValidateCodeException("验证码不能为空");
         }
-        if(codeInSession == null){
+        if(validateCodeInHolder == null){
             throw new ValidateCodeException("验证码不存在");
         }
-        if(codeInSession.isExpire()){
+        if(validateCodeInHolder.isExpire()){
             throw new ValidateCodeException("验证码已过期");
         }
-        if(!StringUtils.equalsIgnoreCase(codeInSession.getCode(),requestCode)){
+        if(!StringUtils.equalsIgnoreCase(validateCodeInHolder.getCode(),requestCode)){
             throw new ValidateCodeException("验证码不正确");
         }
-        //从session中清除验证码
-        sessionStrategy.removeAttribute(servletWebRequest,SESSION_VALIDATE_CODE_PREFIX + validateCodeType.toUpperCase());
+        //从holder中清除
+        validateCodeHolder.remove(validateToken);
     }
 }

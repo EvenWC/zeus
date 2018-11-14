@@ -25,7 +25,7 @@ public class SmsValidateCodeManager implements ValidateCodeManager {
     public ValidateCode generateValidateCode() {
         SmsCodeProperties smsCode = zeusProperties.getValidateCode().getSmsCode();
         String validateCode = RandomStringUtils.randomNumeric(smsCode.getLength());
-        return new ValidateCode(validateCode,smsCode.getExpireIn());
+        return new ValidateCode(null,validateCode,smsCode.getExpireIn());
     }
 
     @Override

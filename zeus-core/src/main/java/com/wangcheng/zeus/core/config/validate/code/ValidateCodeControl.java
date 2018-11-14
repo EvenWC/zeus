@@ -27,8 +27,6 @@ public class ValidateCodeControl {
 
     @GetMapping("code/{type}")
     public void createImage(@PathVariable("type")String type , HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession();
-        System.out.println(session);
         validateCodeProcessors.get(type+"CodeProcessor").createValidateCode(new ServletWebRequest(request,response));
     }
 }

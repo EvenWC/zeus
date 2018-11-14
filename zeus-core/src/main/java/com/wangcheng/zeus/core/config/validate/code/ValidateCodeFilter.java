@@ -16,7 +16,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -76,14 +75,11 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        logger.info("用户请求路径：{},用户请求方式:{}",request.getRequestURI(),request.getMethod());
         ValidateCodeType validateCodeType = urlMap.get(request.getRequestURI());
         //判断是否需要验证
         if(validateCodeType != null){
             //获取要执行的
             try {
-                HttpSession session = request.getSession();
-                System.out.println(session);
                 validateCodeProcessorHolder.getValidateCodeProcessorByType(validateCodeType).validateCode(new ServletWebRequest(request));
             }catch (ValidateCodeException e){
                 handler.onAuthenticationFailure(request,response,e);

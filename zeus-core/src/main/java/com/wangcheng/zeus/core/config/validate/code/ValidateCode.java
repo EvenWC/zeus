@@ -8,15 +8,27 @@ import java.time.LocalDateTime;
  * @Description:验证码
  */
 public class ValidateCode {
-
+    /**
+     * 和code一一对应，和验证码一起发给前端
+     */
+    private String token;
     /**验证码*/
     private String code;
     /**过期时间*/
     private LocalDateTime expireTime;
 
-    public ValidateCode(String code, Long expireIn) {
+    public ValidateCode(String token,String code, Long expireIn) {
+        this.token = token;
         this.code = code;
         this.expireTime = LocalDateTime.now().plusSeconds(expireIn);
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getCode() {

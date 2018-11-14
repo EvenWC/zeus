@@ -20,7 +20,10 @@ public interface ValidateCodeProcessor {
      * 验证码请求参数后缀
      */
     String VALIDATE_CODE_PARAMETER_SUFFIX = "Code";
-
+    /**
+     * 验证码请求参数后缀
+     */
+    String VALIDATE_TOKEN_PARAMETER_SUFFIX = "Token";
     /**
      * 创建验证码流程
      * @param servletWebRequest

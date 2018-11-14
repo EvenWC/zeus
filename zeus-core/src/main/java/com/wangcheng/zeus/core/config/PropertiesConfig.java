@@ -5,9 +5,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Auther: Administrator
- * @Date: 2018/9/18 22:59
- * @Description:
+ * @author : Administrator
+ * @date : 2018/9/18 22:59
  */
 @Configuration
 @EnableConfigurationProperties(ZeusProperties.class)

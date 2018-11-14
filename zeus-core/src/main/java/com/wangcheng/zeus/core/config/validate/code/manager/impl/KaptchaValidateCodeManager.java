@@ -10,6 +10,7 @@ import com.wangcheng.zeus.core.config.validate.code.manager.ValidateCodeManager;
 
 import java.awt.image.BufferedImage;
 import java.util.Properties;
+import java.util.UUID;
 
 /**
  * @author : Administrator
@@ -33,7 +34,9 @@ public class KaptchaValidateCodeManager implements ValidateCodeManager {
         this.setKaptchaConfig(imageCodeProperties);
         String code = kaptcha.createText();
         BufferedImage image = kaptcha.createImage(code);
-        return new ImageCode(code,imageCodeProperties.getExpireIn(),image);
+        String token = UUID.randomUUID().toString();
+        System.out.println(token);
+        return new ImageCode(token,code,imageCodeProperties.getExpireIn(),image);
     }
 
     private void setKaptchaConfig(ImageCodeProperties imageCodeProperties){

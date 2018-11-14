@@ -11,8 +11,8 @@ public class ImageCode extends ValidateCode{
     /**验证图片*/
     private BufferedImage bufferedImage;
 
-    public ImageCode(String code, Long expireIn, BufferedImage bufferedImage) {
-        super(code, expireIn);
+    public ImageCode(String token,String code, Long expireIn, BufferedImage bufferedImage) {
+        super(token,code, expireIn);
         this.bufferedImage = bufferedImage;
     }
 
