@@ -51,7 +51,12 @@ spring:
     database-platform:
   session:
     store-type: none
-
+  redis:
+    database: 0
+    host: 47.98.158.193
+    port: 6378
+    password: evan
+    timeout: 1000
 # 以下为druid 监控配置
 druid:
   stat:
@@ -68,14 +73,10 @@ druid:
       resetEnable: true
     filter:
       urlPatterns: /*
-security:
-  basic:
-    enabled: false
-
 zeus:
   browser:
     login-page: /demo-login.html
   social:
     qq:
-      appId: 123
-      appSecret: 123
+      appId: 101518164
+      appSecret: 8dbca5eec99b6ec9fda46530f7663c8c

@@ -9,14 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>zeus-core</module>
         <module>zeus-app</module>
-        <module>zeus-browser</module>
         <module>zeus-demo</module>
         <module>zeus-common</module>
         <module>zeus-facade</module>
-        <module>zeus-mobile</module>
         <module>zeus-starter</module>
+        <module>zeus-auth</module>
     </modules>
     <properties>
         <zeus.version>1.0-SNAPSHOT</zeus.version>
