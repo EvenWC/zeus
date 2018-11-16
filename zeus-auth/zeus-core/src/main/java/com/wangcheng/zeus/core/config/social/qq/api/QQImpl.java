@@ -1,6 +1,7 @@
 package com.wangcheng.zeus.core.config.social.qq.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wangcheng.zeus.core.config.utils.JsonUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.TokenStrategy;
@@ -35,10 +36,7 @@ public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
         //获取openid
         String url = String.format(URL_GET_OPENID,accessToken);
         String result = getRestTemplate().getForObject(url, String.class);
-        System.out.println(result);
-
-        String openid = StringUtils.substringBetween("\"openid\":\"", "}");
-        this.openid = openid;
+        this.openid = StringUtils.substringBetween(result,"\"openid\":\"", "\"}");
     }
 
     @Override
@@ -46,7 +44,7 @@ public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
         String url = String.format(URL_GET_USER_INFO,appId,openid);
         String result = getRestTemplate().getForObject(url, String.class);
         try {
-            QQUserInfo userInfo = objectMapper.readValue(result, QQUserInfo.class);
+            QQUserInfo userInfo = JsonUtils.readValue(result, QQUserInfo.class);
             userInfo.setOpenId(openid);
             return userInfo;
         } catch (IOException e) {
