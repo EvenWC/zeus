@@ -28,8 +28,6 @@ public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
 
     private String openid;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     public QQImpl(String appId,String accessToken){
         super(accessToken,TokenStrategy.ACCESS_TOKEN_PARAMETER);
         this.appId = appId;

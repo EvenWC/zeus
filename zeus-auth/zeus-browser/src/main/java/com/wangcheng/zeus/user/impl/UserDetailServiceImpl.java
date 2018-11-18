@@ -45,8 +45,6 @@ public class UserDetailServiceImpl implements ZeusUserDetailService ,SocialUserD
         return buildZeusUserDetails( user);
     }
 
-
-
     @Override
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
         UserDetail user = userDao.findOne(Long.valueOf(userId));

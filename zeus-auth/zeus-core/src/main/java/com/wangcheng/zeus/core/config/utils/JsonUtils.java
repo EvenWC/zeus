@@ -33,7 +33,9 @@ public class JsonUtils {
         objectMapper.registerModule(module);
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
     }
-
+    private JsonUtils() throws IllegalAccessException {
+        throw new IllegalAccessException("工具类不能实例化");
+    }
     public static String writeValueAsString(Object object) throws JsonProcessingException {
         return objectMapper.writeValueAsString(object);
     }

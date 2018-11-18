@@ -26,6 +26,9 @@ public class TokenUtils {
 
     private static final SignatureAlgorithm DECODE_TOKEN_ALGORITHM = SignatureAlgorithm.HS256;
 
+    private TokenUtils() throws IllegalAccessException {
+        throw new IllegalAccessException("工具类不能实例化");
+    }
     /**
      * 基于jwt 生成一个token
      * @param claims    要打包的数据

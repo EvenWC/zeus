@@ -7,8 +7,6 @@ import org.springframework.social.oauth2.OAuth2Template;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Map;
-
 /**
  * @author: Administrator
  * @date: 2018/11/16 23:37

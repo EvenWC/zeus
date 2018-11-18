@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.social.SocialAutoConfigurerAdapter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.social.connect.ConnectionFactory;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UsersConnectionRepository;
 
 /**
  * @author: Administrator
@@ -25,5 +27,9 @@ public class QQAutoConfigurer extends SocialAutoConfigurerAdapter {
     protected ConnectionFactory<?> createConnectionFactory() {
         QQProperties qqProperties = zeusProperties.getSocial().getQq();
         return new QQConnectionFactory(qqProperties.getProviderId(),qqProperties.getAppId(),qqProperties.getAppSecret());
+    }
+    @Override
+    public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
+        return null;
     }
 }

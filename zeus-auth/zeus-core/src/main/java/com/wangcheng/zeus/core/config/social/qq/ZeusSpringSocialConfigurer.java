@@ -4,7 +4,7 @@ import org.springframework.social.security.SocialAuthenticationFilter;
 import org.springframework.social.security.SpringSocialConfigurer;
 
 /**
- * @author: Administrator
+ * @author: evan
  * @date: 2018/11/16 20:16
  * @description:
  */
