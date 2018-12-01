@@ -3,8 +3,6 @@ package com.wangcheng.zeus.core.config.social.qq.connect;
 import com.wangcheng.zeus.core.config.social.qq.api.QQ;
 import com.wangcheng.zeus.core.config.social.qq.api.QQImpl;
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
-import org.springframework.social.oauth2.OAuth2Operations;
-import org.springframework.social.oauth2.OAuth2Template;
 
 /**
  * @author: Administrator

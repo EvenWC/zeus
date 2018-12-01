@@ -1,8 +1,8 @@
 package com.wangcheng.zeus.core.config.authentication.account;
 
 import com.wangcheng.zeus.core.config.authentication.ZeusAuthenticationFilter;
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusFailureHandler;
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusSuccessHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.AuthFailureHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.AuthSuccessHandler;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,10 +26,10 @@ public class AccountAuthenticationConfigurer extends SecurityConfigurerAdapter<D
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private ZeusSuccessHandler zeusSuccessHandler;
+    private AuthSuccessHandler authSuccessHandler;
 
     @Autowired
-    private ZeusFailureHandler zeusFailureHandler;
+    private AuthFailureHandler authFailureHandler;
 
     @Autowired
     private ZeusProperties zeusProperties;
@@ -37,8 +37,8 @@ public class AccountAuthenticationConfigurer extends SecurityConfigurerAdapter<D
     @Override
     public void configure(HttpSecurity http) throws Exception {
         AccountAuthenticationFilter accountAuthenticationFilter = new AccountAuthenticationFilter(http.getSharedObject(AuthenticationManager.class));
-        accountAuthenticationFilter.setAuthenticationFailureHandler(zeusFailureHandler);
-        accountAuthenticationFilter.setAuthenticationSuccessHandler(zeusSuccessHandler);
+        accountAuthenticationFilter.setAuthenticationFailureHandler(authFailureHandler);
+        accountAuthenticationFilter.setAuthenticationSuccessHandler(authSuccessHandler);
         ZeusAuthenticationFilter zeusAuthenticationFilter = new ZeusAuthenticationFilter(zeusProperties,userDetailsService);
         http.authenticationProvider(new AccountAuthenticationProvider(userDetailsService,zeusProperties))
             .addFilterAfter(accountAuthenticationFilter,UsernamePasswordAuthenticationFilter.class)

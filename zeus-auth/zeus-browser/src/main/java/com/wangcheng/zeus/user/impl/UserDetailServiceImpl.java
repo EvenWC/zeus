@@ -33,7 +33,7 @@ public class UserDetailServiceImpl implements ZeusUserDetailService ,SocialUserD
     @Autowired
     private UserDetailDao userDao;
 
-   // @Autowired
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override

@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "zeus")
 public class ZeusProperties {
 
-    private String[] excludeURIs = new String[]{"/swagger-ui.html","/swagger-resources/configuration/ui","/v2/*","/swagger-resources","/code/*","/user/register","/user/checkAccount","/qq/callback"};
+    private String[] excludeURIs = new String[]{"/swagger-ui.html","/swagger-resources/**","/v2/**","/swagger-resources","/code/*","/user/register","/user/checkAccount","/qq/callback","/websocket"};
 
     private BrowserProperties browser = new BrowserProperties();
 

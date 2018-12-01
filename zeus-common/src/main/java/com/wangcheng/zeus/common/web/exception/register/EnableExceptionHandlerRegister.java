@@ -51,8 +51,8 @@ public class EnableExceptionHandlerRegister implements ImportBeanDefinitionRegis
         char a = 'A';
         char z = 'Z';
         char sc = beanName.charAt(0);
-        if(sc > a && sc < z){
-            return (char)(sc+32) + beanName.substring(1);
+        if(sc >= a && sc <= z){
+            return (char)(sc + 32) + beanName.substring(1);
         }
         return beanName;
     }

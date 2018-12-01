@@ -1,6 +1,6 @@
 package com.wangcheng.zeus.core.config.validate.code.config;
 
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusFailureHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.AuthFailureHandler;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.validate.code.ValidateCodeFilter;
 import com.wangcheng.zeus.core.config.validate.code.processor.ValidateCodeProcessorHolder;
@@ -20,14 +20,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class ValidateCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain,HttpSecurity> {
     @Autowired
-    private ZeusFailureHandler zeusFailureHandler;
+    private AuthFailureHandler authFailureHandler;
     @Autowired
     private ZeusProperties zeusProperties;
     @Autowired
     private ValidateCodeProcessorHolder validateCodeProcessorHolder;
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter(zeusFailureHandler, zeusProperties,validateCodeProcessorHolder);
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter(authFailureHandler, zeusProperties,validateCodeProcessorHolder);
         validateCodeFilter.afterPropertiesSet();
         http.addFilterBefore(validateCodeFilter,UsernamePasswordAuthenticationFilter.class);
     }

@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 import java.util.*;
 
 /**
- * @author  Administrator
+ * @author  evan
  * @Date: 2018/9/26 21:12
  * @Description: 提供策略支持
  */
@@ -137,13 +137,13 @@ public class BaseSpringExceptionHandleStrategyHolder  implements ExceptionHandle
      */
     public String printStrategyMap(){
         StringBuffer stringBuffer = new StringBuffer();
-        strategyMap.forEach((key,value)->{
-            stringBuffer.append("\n{");
-            stringBuffer.append(key.toString());
-            stringBuffer.append(":");
-            stringBuffer.append(value);
-            stringBuffer.append("}\n");
-        });
+        strategyMap.forEach((key,value)->
+            stringBuffer.append("\n{")
+                        .append(key.toString())
+                        .append(":")
+                        .append(value)
+                        .append("}\n")
+        );
         return stringBuffer.toString();
     }
 }

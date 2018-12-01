@@ -1,6 +1,5 @@
 package com.wangcheng.zeus.core.config.social.qq.api;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wangcheng.zeus.core.config.utils.JsonUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;

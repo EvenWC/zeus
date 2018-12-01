@@ -80,7 +80,6 @@ zeus:
     qq:
       appId: 101518164
       appSecret: 8dbca5eec99b6ec9fda46530f7663c8c
-      providerId: callback
-    filterProcessesUrl: /qq
+    filterProcessesUrl: /auth
 server:
-  port: 80
+  port: 8080

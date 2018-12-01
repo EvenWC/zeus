@@ -4,6 +4,7 @@ import com.wangcheng.zeus.common.filter.ImmulableInputStreamFilter;
 import com.wangcheng.zeus.core.config.authentication.account.AccountAuthenticationConfigurer;
 import com.wangcheng.zeus.core.config.authentication.mobile.SmsAuthenticationConfigurer;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
+import com.wangcheng.zeus.core.config.social.process.ZeusSpringSocialConfigurer;
 import com.wangcheng.zeus.core.config.validate.code.config.ValidateCodeSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.social.security.SpringSocialConfigurer;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -38,7 +38,7 @@ public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
     @Autowired
-    private SpringSocialConfigurer springSocialConfigurer;
+    private ZeusSpringSocialConfigurer socialConfigurer;
 
     @Autowired
     private AccountAuthenticationConfigurer accountAuthenticationConfigurer;
@@ -47,7 +47,7 @@ public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     protected void configure(HttpSecurity http) throws Exception {
         //使用ImmulableInputStreamFilter,注意：这个过滤器应该放到所有需要通过request.getInputStream()之前， 来支持多次request.getInputStream()
         ImmulableInputStreamFilter immulableInputStreamFilter = new ImmulableInputStreamFilter();
-        http.csrf().disable().cors().and().addFilterBefore(immulableInputStreamFilter,UsernamePasswordAuthenticationFilter.class)
+        http.csrf().disable().cors().and().headers().frameOptions().disable().and().addFilterBefore(immulableInputStreamFilter,UsernamePasswordAuthenticationFilter.class)
             .apply(validateCodeSecurityConfig)
                 .and()
             //自定义密码登录相关
@@ -55,7 +55,7 @@ public class ZeusWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
                 .and()
             .apply(smsAuthenticationConfigurer)
                 .and()
-            .apply(springSocialConfigurer)
+            .apply(socialConfigurer)
                 .and()
                 .authorizeRequests()
                 .antMatchers(zeusProperties.getExcludeURIs())

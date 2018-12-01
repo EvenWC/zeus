@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.social.SocialProperties;
  */
 public class QQProperties extends SocialProperties {
 
-    private String providerId = "qq";
+    private String providerId = "qq.do";
 
     public String getProviderId() {
         return providerId;

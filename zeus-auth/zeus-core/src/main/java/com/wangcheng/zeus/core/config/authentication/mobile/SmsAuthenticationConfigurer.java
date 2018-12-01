@@ -1,7 +1,7 @@
 package com.wangcheng.zeus.core.config.authentication.mobile;
 
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusFailureHandler;
-import com.wangcheng.zeus.core.config.authentication.handle.ZeusSuccessHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.AuthFailureHandler;
+import com.wangcheng.zeus.core.config.authentication.handle.AuthSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -23,10 +23,10 @@ public class SmsAuthenticationConfigurer extends SecurityConfigurerAdapter<Defau
     private UserDetailsService userDetailsService;
 
     @Autowired
-    private ZeusSuccessHandler zeusSuccessHandler;
+    private AuthSuccessHandler authSuccessHandler;
 
     @Autowired
-    private ZeusFailureHandler zeusFailureHandler;
+    private AuthFailureHandler authFailureHandler;
 
     @Override
     public void configure(HttpSecurity http)  {
@@ -34,8 +34,8 @@ public class SmsAuthenticationConfigurer extends SecurityConfigurerAdapter<Defau
         SmsAuthenticationFilter smsAuthenticationFilter = new SmsAuthenticationFilter();
         //设置AuthenticationManager
         smsAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        smsAuthenticationFilter.setAuthenticationFailureHandler(zeusFailureHandler);
-        smsAuthenticationFilter.setAuthenticationSuccessHandler(zeusSuccessHandler);
+        smsAuthenticationFilter.setAuthenticationFailureHandler(authFailureHandler);
+        smsAuthenticationFilter.setAuthenticationSuccessHandler(authSuccessHandler);
         SmsAuthenticationProvider smsAuthenticationProvider = new SmsAuthenticationProvider(userDetailsService);
         http.authenticationProvider(smsAuthenticationProvider)
             .addFilterAfter(smsAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);

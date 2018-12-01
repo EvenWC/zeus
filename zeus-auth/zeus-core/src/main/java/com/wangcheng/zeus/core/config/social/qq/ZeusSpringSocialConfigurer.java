@@ -1,5 +1,6 @@
 package com.wangcheng.zeus.core.config.social.qq;
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.social.security.SocialAuthenticationFilter;
 import org.springframework.social.security.SpringSocialConfigurer;
 
@@ -15,6 +16,12 @@ public class ZeusSpringSocialConfigurer extends SpringSocialConfigurer {
     public ZeusSpringSocialConfigurer(String filterProcessesUrl){
         this.filterProcessesUrl = filterProcessesUrl;
     }
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+       super.configure(http);
+    }
+
     @Override
     protected <T> T postProcess(T object) {
         SocialAuthenticationFilter socialAuthenticationFilter = (SocialAuthenticationFilter)super.postProcess(object);

@@ -1,8 +1,8 @@
 package com.wangcheng.zeus.core.config.social;
 
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
-import com.wangcheng.zeus.core.config.social.qq.ZeusSpringSocialConfigurer;
-import com.wangcheng.zeus.core.config.social.repository.ZeusUserConnectionRepository;
+import com.wangcheng.zeus.core.config.social.process.ZeusSpringSocialConfigurer;
+import com.wangcheng.zeus.core.config.social.process.repository.ZeusUserConnectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +12,6 @@ import org.springframework.social.config.annotation.SocialConfigurerAdapter;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UsersConnectionRepository;
-import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
-import org.springframework.social.security.SpringSocialConfigurer;
-
 import javax.sql.DataSource;
 import java.util.Objects;
 
@@ -45,7 +42,7 @@ public class socialConfig extends SocialConfigurerAdapter {
         return zeusUserConnectionRepository;
     }
     @Bean
-    public SpringSocialConfigurer springSocialConfigurer(){
-        return new ZeusSpringSocialConfigurer(zeusProperties.getSocial().getFilterProcessesUrl());
+    public ZeusSpringSocialConfigurer springSocialConfigurer(){
+        return new ZeusSpringSocialConfigurer(zeusProperties);
     }
 }
