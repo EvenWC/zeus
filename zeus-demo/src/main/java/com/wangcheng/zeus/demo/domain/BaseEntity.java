@@ -17,6 +17,9 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
+
+    @Id
+    @GeneratedValue
     @ApiModelProperty(name = "主键id",example = "1")
     private Long id;
     @ApiModelProperty(name = "创建时间")
@@ -24,8 +27,7 @@ public class BaseEntity implements Serializable {
     @ApiModelProperty(name = "修改时间")
     private Date gmtModify;
 
-    @Id
-    @GeneratedValue
+
     @JsonView(value = ResponseModel.SimpleInfo.class)
     public Long getId() {
         return id;

@@ -4,82 +4,10 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46975473-45e8-42f3-a2c5-c4d0cecf8007" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/resources/templates/noticeFront.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/ZeusSpringSocialConfigurer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/filter/ZeusSocialAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/handler/SocialAuthSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/provider/ZeusSocialAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/service/ZeusOAuth2AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/config/MapEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/config/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/server/WebSocketServer.java" afterDir="false" />
+    <list default="true" id="46975473-45e8-42f3-a2c5-c4d0cecf8007" name="Default" comment="发布版本">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-browser/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/remeberme/RemembermeFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/remeberme/TokenManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/user/impl/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/user/impl/UserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/dao/ResourceDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/dao/RoleDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/dao/TokenDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/dao/UserDetailDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/domain/Resource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/domain/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/domain/Token.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/domain/UserDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/remeberme/RemembermeFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/remeberme/TokenManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/user/ZeusUserDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/user/ZeusUserDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-browser/target/classes/com/wangcheng/zeus/utils/ZeusAuthorityUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/ZeusAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/ZeusAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/account/AccountAuthenticationConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/account/AccountAuthenticationConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/ZeusFailureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/AuthFailureHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/ZeusSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/handle/AuthSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/QQProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/QQProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/ZeusSpringSocialConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/ZeusSpringSocialConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/api/QQImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/connect/QQServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/qq/connect/QQServiceProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/repository/ZeusConnectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/repository/ZeusConnectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/repository/ZeusUserConnectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/repository/ZeusUserConnectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/socialConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/socialConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/config/ValidateCodeSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/validate/code/config/ValidateCodeSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/PropertiesConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/BrowserProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/ImageCodeProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/ValidateCodeProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/properties/ZeusProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ImageCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeControl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/ValidateCodeFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/exception/ValidateCodeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/ValidateCodeManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-auth/zeus-core/target/classes/com/wangcheng/zeus/core/config/validate/code/manager/impl/KaptchaValidateCodeManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/cache/CacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/cache/CacheService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/configuration/EnableExceptionHandleAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/configuration/EnableExceptionHandleAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/holder/impl/BaseSpringExceptionHandleStrategyHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/holder/impl/BaseSpringExceptionHandleStrategyHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/register/EnableExceptionHandlerRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/register/EnableExceptionHandlerRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/response/ResponseModel$SimpleDetailInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/response/ResponseModel$SimpleInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/response/ResponseModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/utils/CommonUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/BusinessException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/ValidateException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/ExceptionHandleStrategy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/annotation/ExceptionHandleType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-common/target/classes/com/wangcheng/zeus/common/web/exception/strategy/impl/DefaultExceptionHandleStrategy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/domain/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/zeus-demo/target/classes/com/wangcheng/zeus/demo/domain/BaseEntity.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/zeus-browser/target/" />
     <ignored path="$PROJECT_DIR$/zeus-demo/target/" />
@@ -122,29 +50,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zeus-demo/pom.xml">
+      <file leaf-file-name="ZeusAuthenticationFilter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/ZeusAuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="176">
+              <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ZeusProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
+            <state relative-caret-position="170">
+              <caret line="12" column="196" selection-start-line="12" selection-start-column="196" selection-end-line="12" selection-end-column="196" />
+              <folding>
+                <element signature="e#1276#1277#0" expanded="true" />
+                <element signature="e#1310#1311#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,8 +80,8 @@
         <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -219,8 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/dao/JpaUserConnectionRepository.java" />
-        <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/dao/JpaConnectionRepository.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/domain/UserConnection.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/dao/UserConnectionDAO.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/serice/JpaConnectionRepository.java" />
@@ -253,7 +174,6 @@
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/pom.xml" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/config/WebSocketServer.java" />
-        <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/config/C.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/websocket/config/MapEncoder.java" />
         <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/handler/SocialAuthSuccessHandler.java" />
@@ -270,6 +190,9 @@
         <option value="$PROJECT_DIR$/zeus-demo/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/BaseEntity.java" />
+        <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/resources/QQ.html" />
+        <option value="$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java" />
       </list>
     </option>
   </component>
@@ -300,19 +223,6 @@
           <item name="zeus" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Modules" type="87271259:MavenProjectsStructure$ModulesNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="zeus" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Modules" type="87271259:MavenProjectsStructure$ModulesNode" />
-          <item name="zeus-demo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="zeus" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Modules" type="87271259:MavenProjectsStructure$ModulesNode" />
-          <item name="zeus-demo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
       </expand>
       <select />
     </treeState>
@@ -335,8 +245,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -347,13 +255,66 @@
             <path>
               <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
               <item name="zeus" type="462c0819:PsiDirectoryNode" />
-              <item name="zeus-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zeus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zeus" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-auth" type="462c0819:PsiDirectoryNode" />
+              <item name="zeus-core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,10 +338,12 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\workspace\JAVA\zeus\zeus-demo\src\main\resources" />
       <recent name="H:\workspace\JAVA\zeus\zeus-demo\src\main\resources\static" />
-      <recent name="H:\workspace\JAVA\zeus\zeus-auth" />
-      <recent name="H:\workspace\JAVA\zeus\zeus-browser\src\main\resources\static" />
+      <recent name="H:\workspace\JAVA\zeus\zeus-common\src\main\java\com\wangcheng\zeus\common\response" />
+      <recent name="H:\workspace\JAVA\zeus\zeus-core\src\main\java\com\wangcheng\zeus\core\config\authentication\mobile" />
+      <recent name="H:\workspace\JAVA\zeus\zeus-browser\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wangcheng.zeus.core.config.validate.code" />
@@ -388,12 +351,11 @@
       <recent name="com.wangcheng.zeus.dao" />
       <recent name="com.wangcheng.zeus.demo.web.control" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\workspace\JAVA\zeus\zeus-demo\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\workspace\JAVA\zeus\zeus-auth\zeus-core\src\main\resources\static" />
       <recent name="H:\workspace\JAVA\zeus\zeus-demo\src\main\resources\static" />
-      <recent name="H:\workspace\JAVA\zeus\zeus-common\src\main\java\com\wangcheng\zeus\common\response" />
-      <recent name="H:\workspace\JAVA\zeus\zeus-core\src\main\java\com\wangcheng\zeus\core\config\authentication\mobile" />
-      <recent name="H:\workspace\JAVA\zeus\zeus-browser\src\main\resources" />
+      <recent name="H:\workspace\JAVA\zeus\zeus-auth" />
+      <recent name="H:\workspace\JAVA\zeus\zeus-browser\src\main\resources\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -628,7 +590,9 @@
       <workItem from="1543150979279" duration="1822000" />
       <workItem from="1543492138747" duration="4669000" />
       <workItem from="1543497889031" duration="1432000" />
-      <workItem from="1543658852062" duration="3994000" />
+      <workItem from="1543658852062" duration="4071000" />
+      <workItem from="1543756582148" duration="810000" />
+      <workItem from="1544015222386" duration="3526000" />
     </task>
     <task id="LOCAL-00001" summary="qq">
       <created>1540389841959</created>
@@ -686,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542554594306</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="发布版本">
+      <created>1543665165225</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543665165225</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -722,13 +693,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="398066000" />
+    <option name="totallyTimeSpent" value="402479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.11195159" side_tool="true" visible="true" weight="0.15511551" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.18532526" side_tool="true" visible="true" weight="0.028052805" />
       <window_info anchor="right" id="Maven Projects" order="11" visible="true" weight="0.24130106" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
@@ -738,22 +709,21 @@
       <window_info id="Structure" order="1" sideWeight="0.50111854" side_tool="true" weight="0.27912253" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8154312" weight="0.22607261" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.81467474" weight="0.028052805" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4969743" weight="0.2739274" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49621785" weight="0.2739274" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3294893" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49848714" weight="0.25742576" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8880484" visible="true" weight="0.15511551" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8880484" weight="0.17161717" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32838285" />
       <window_info anchor="bottom" id="MyBatis Sql Log" order="7" sideWeight="0.49924356" weight="0.32838285" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49775785" visible="true" weight="0.27987897" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49775785" visible="true" weight="0.28895614" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32980332" />
       <window_info id="Web" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.8774584" weight="0.24257426" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.0990099" />
@@ -762,6 +732,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Thumbnails" order="15" weight="0.32838285" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.8774584" weight="0.24257426" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
@@ -818,7 +789,8 @@
     <MESSAGE value="feat:使用redis作为保存验证码的方式，重构现有结构模块" />
     <MESSAGE value="qq登录 基本实现" />
     <MESSAGE value="qq登录  自定义userConnection 表" />
-    <option name="LAST_COMMIT_MESSAGE" value="qq登录  自定义userConnection 表" />
+    <MESSAGE value="发布版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="发布版本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,48 +834,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/configuration/EnableExceptionHandleAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/BaseEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/security/QQConnectionSignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/handler/GlobalExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zeus-common/src/main/java/com/wangcheng/zeus/common/web/exception/strategy/impl/BusinessExceptionHandleStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1079,35 +1009,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="40" column="38" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/provider/ZeusSocialAuthenticationProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/ZeusSpringSocialConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="e#1921#1922#0" expanded="true" />
-            <element signature="e#1973#1974#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,13 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/QQProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1216,28 +1114,103 @@
           <settings layout="Hierarchic Group" zoom="0.3314285714285714" x="657.0" y="515.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>All</VISIBILITY>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zeus-demo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state relative-caret-position="550">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
+        <state relative-caret-position="724">
           <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/java/com/wangcheng/zeus/demo/domain/BaseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/mobile/SmsAuthenticationProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-browser/src/main/java/com/wangcheng/zeus/config/ZeusWebSecurityConfigurerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/social/process/ZeusSpringSocialConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zeus-demo/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
+        <state relative-caret-position="173">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/QQProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/account/AccountAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.32/tomcat-embed-core-8.5.32-sources.jar!/javax/servlet/http/HttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="316" column="18" selection-start-line="316" selection-start-column="18" selection-end-line="316" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/properties/ZeusProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="196" selection-start-line="12" selection-start-column="196" selection-end-line="12" selection-end-column="196" />
+          <folding>
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1310#1311#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/resources/static/QQ.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zeus-auth/zeus-core/src/main/java/com/wangcheng/zeus/core/config/authentication/ZeusAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
         </state>
       </provider>
     </entry>
