@@ -1,13 +1,11 @@
-package com.wangcheng.zeus.core.config.social.websocket.server;
+package com.wangcheng.zeus.common.websocket.server;
 
 import com.google.common.collect.Maps;
-import com.wangcheng.zeus.core.config.social.websocket.config.MapEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;

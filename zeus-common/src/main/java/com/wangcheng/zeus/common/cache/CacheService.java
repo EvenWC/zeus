@@ -110,4 +110,6 @@ public interface CacheService {
      */
      Set<Object> rangeByScore(String key,double scoure,double scoure1);
 
+    //发布消息
+    void pub(Object message);
 }

@@ -1,4 +1,4 @@
-package com.wangcheng.zeus.core.config.social.websocket.config;
+package com.wangcheng.zeus.common.websocket.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

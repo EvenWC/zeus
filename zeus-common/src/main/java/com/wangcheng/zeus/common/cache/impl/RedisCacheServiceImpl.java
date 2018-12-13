@@ -199,4 +199,9 @@ public class RedisCacheServiceImpl implements CacheService {
         ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
         return zset.rangeByScore(key, scoure, scoure1);
     }
+
+    @Override
+    public void pub(Object message) {
+        redisTemplate.convertAndSend("websocket",message);
+    }
 }

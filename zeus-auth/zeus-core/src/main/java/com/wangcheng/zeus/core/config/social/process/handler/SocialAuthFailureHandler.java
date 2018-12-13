@@ -40,8 +40,6 @@ public class SocialAuthFailureHandler implements AuthenticationFailureHandler {
         //如果是这个异常表示，用户没有跳转到指定的登陆页面进行登陆，因此重定向到登陆页面
         if (failed instanceof SocialAuthenticationRedirectException) {
             String redirectUrl = ((SocialAuthenticationRedirectException) failed).getRedirectUrl();
-            //使用前端传过来的state替换默认的state，目的是为了保证前后端分离模式下
-            redirectUrl = redirectUrl.replaceAll("state", "xstate") + "&state="+request.getParameter("sessionId");
             response.sendRedirect(redirectUrl);
             return;
         }

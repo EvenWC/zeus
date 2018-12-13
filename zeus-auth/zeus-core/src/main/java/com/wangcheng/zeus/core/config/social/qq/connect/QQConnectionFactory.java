@@ -3,6 +3,8 @@ package com.wangcheng.zeus.core.config.social.qq.connect;
 import com.wangcheng.zeus.core.config.social.qq.api.QQ;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 
+import java.util.UUID;
+
 /**
  * @author: evan
  * @date: 2018/10/27 15:36
