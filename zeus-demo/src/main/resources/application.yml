@@ -83,7 +83,7 @@ zeus:
       appId: 101518164
       appSecret: 8dbca5eec99b6ec9fda46530f7663c8c
     filterProcessesUrl: /auth
-    callbackFrontUrl: http://www.525qz.com/#/success
+    callbackFrontUrl: http://www.525qz.site/#/success
     #callbackFrontUrl: http://localhost:4444/#/success
 server:
   port: 8080
