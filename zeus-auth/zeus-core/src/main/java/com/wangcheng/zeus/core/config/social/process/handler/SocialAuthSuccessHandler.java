@@ -1,6 +1,8 @@
 package com.wangcheng.zeus.core.config.social.process.handler;
 
 import com.wangcheng.zeus.core.config.authentication.account.LoginInfo;
+import io.jsonwebtoken.lang.Assert;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -15,12 +17,23 @@ import java.time.format.DateTimeFormatter;
  * @date: 2018/11/20 22:21
  * @description:
  */
-public class SocialAuthSuccessHandler implements AuthenticationSuccessHandler {
+public class SocialAuthSuccessHandler implements AuthenticationSuccessHandler , InitializingBean {
+
+
+    private String callbackFrontUrl;
+
+    public SocialAuthSuccessHandler(String callbackFrontUrl){
+        this.callbackFrontUrl = callbackFrontUrl;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Assert.hasText(callbackFrontUrl,"回调前端地址不能为空");
+    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        request.setAttribute("auth",authentication.getDetails());
-        response.sendRedirect("http://localhost:4444/#/success"+tokenSerializable((LoginInfo)authentication.getDetails()));
+        response.sendRedirect(callbackFrontUrl + tokenSerializable((LoginInfo)authentication.getDetails()));
     }
 
 
@@ -33,5 +46,6 @@ public class SocialAuthSuccessHandler implements AuthenticationSuccessHandler {
         String accessTokenParam = "?accessToken="+token.getAccessToken();
         return accessTokenParam;
     }
+
 
 }

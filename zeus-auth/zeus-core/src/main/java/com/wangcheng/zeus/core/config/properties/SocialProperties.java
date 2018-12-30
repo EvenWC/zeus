@@ -9,6 +9,8 @@ public class SocialProperties {
 
     private String filterProcessesUrl = "/auth";
 
+    private String callbackFrontUrl;
+
     private QQProperties qq = new QQProperties();
 
     public QQProperties getQq() {
@@ -23,5 +25,13 @@ public class SocialProperties {
     }
     public void setFilterProcessesUrl(String filterProcessesUrl) {
         this.filterProcessesUrl = filterProcessesUrl;
+    }
+
+    public String getCallbackFrontUrl() {
+        return callbackFrontUrl;
+    }
+
+    public void setCallbackFrontUrl(String callbackFrontUrl) {
+        this.callbackFrontUrl = callbackFrontUrl;
     }
 }

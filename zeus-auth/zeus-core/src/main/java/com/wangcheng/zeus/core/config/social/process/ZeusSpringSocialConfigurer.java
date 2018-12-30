@@ -37,7 +37,9 @@ public class ZeusSpringSocialConfigurer extends SpringSocialConfigurer {
                 usersConnectionRepository,
                 authServiceLocator);
         SocialAuthFailureHandler failureHandler = new SocialAuthFailureHandler(new AuthFailureHandler());
-        filter.setAuthenticationSuccessHandler(new SocialAuthSuccessHandler());
+        SocialAuthSuccessHandler successHandler = new SocialAuthSuccessHandler(zeusProperties.getSocial().getCallbackFrontUrl());
+        successHandler.afterPropertiesSet();
+        filter.setAuthenticationSuccessHandler(successHandler);
         filter.setAuthenticationFailureHandler(failureHandler);
         filter.setFilterProcessesUrl(zeusProperties.getSocial().getFilterProcessesUrl());
         http.authenticationProvider(
