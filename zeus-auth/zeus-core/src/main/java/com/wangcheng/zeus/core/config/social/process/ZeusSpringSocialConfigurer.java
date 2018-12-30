@@ -1,6 +1,5 @@
 package com.wangcheng.zeus.core.config.social.process;
 
-import com.wangcheng.zeus.common.cache.CacheService;
 import com.wangcheng.zeus.core.config.authentication.handle.AuthFailureHandler;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.social.process.handler.SocialAuthFailureHandler;
@@ -32,14 +31,13 @@ public class ZeusSpringSocialConfigurer extends SpringSocialConfigurer {
         UsersConnectionRepository usersConnectionRepository = getDependency(applicationContext, UsersConnectionRepository.class);
         SocialAuthenticationServiceLocator authServiceLocator = getDependency(applicationContext, SocialAuthenticationServiceLocator.class);
         SocialUserDetailsService socialUsersDetailsService = getDependency(applicationContext, SocialUserDetailsService.class);
-        CacheService cacheService = getDependency(applicationContext, CacheService.class);
         SocialAuthenticationFilter filter = new SocialAuthenticationFilter(
                 http.getSharedObject(AuthenticationManager.class),
                 new AuthenticationNameUserIdSource(),
                 usersConnectionRepository,
                 authServiceLocator);
         SocialAuthFailureHandler failureHandler = new SocialAuthFailureHandler(new AuthFailureHandler());
-        filter.setAuthenticationSuccessHandler(new SocialAuthSuccessHandler(cacheService));
+        filter.setAuthenticationSuccessHandler(new SocialAuthSuccessHandler());
         filter.setAuthenticationFailureHandler(failureHandler);
         filter.setFilterProcessesUrl(zeusProperties.getSocial().getFilterProcessesUrl());
         http.authenticationProvider(

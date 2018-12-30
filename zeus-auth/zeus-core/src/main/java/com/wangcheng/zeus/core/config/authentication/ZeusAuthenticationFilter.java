@@ -2,6 +2,7 @@ package com.wangcheng.zeus.core.config.authentication;
 
 import com.wangcheng.zeus.common.response.ResponseModel;
 import com.wangcheng.zeus.core.config.authentication.account.AccountAuthenticationToken;
+import com.wangcheng.zeus.core.config.authentication.account.LoginInfo;
 import com.wangcheng.zeus.core.config.properties.BrowserProperties;
 import com.wangcheng.zeus.core.config.properties.ZeusProperties;
 import com.wangcheng.zeus.core.config.utils.HttpResponseUtils;
@@ -76,6 +77,10 @@ public class ZeusAuthenticationFilter extends OncePerRequestFilter {
         }
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         AccountAuthenticationToken authenticationToken = new AccountAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(), userDetails.getAuthorities());
+        LoginInfo loginInfo = new LoginInfo();
+        loginInfo.setAccessToken(token);
+        loginInfo.setUsername(userDetails.getUsername());
+        authenticationToken.setDetails(loginInfo);
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         filterChain.doFilter(request,response);
     }

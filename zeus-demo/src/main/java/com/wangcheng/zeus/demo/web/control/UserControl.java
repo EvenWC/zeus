@@ -2,6 +2,7 @@ package com.wangcheng.zeus.demo.web.control;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangcheng.zeus.common.response.ResponseModel;
+import com.wangcheng.zeus.core.config.authentication.account.LoginInfo;
 import com.wangcheng.zeus.demo.domain.User;
 import com.wangcheng.zeus.demo.service.UserManager;
 import io.swagger.annotations.Api;
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -55,6 +57,12 @@ public class UserControl {
     @ApiOperation("删除用户")
     public ResponseModel<Boolean> delete(@PathVariable Long id){
         return ResponseModel.SUCCESS(userManager.delete(id));
+    }
+
+    @GetMapping("current")
+    public ResponseModel<LoginInfo> currentInfo(){
+        LoginInfo loginInfo = (LoginInfo) SecurityContextHolder.getContext().getAuthentication().getDetails();
+        return ResponseModel.SUCCESS(loginInfo);
     }
 
 }
