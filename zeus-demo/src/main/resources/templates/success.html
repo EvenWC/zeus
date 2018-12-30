@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>success</title>
+
+    <script  th:inline="javascript">
+        var auth=[[${auth}]];
+        window.parent.loginSuccessCallback(auth);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

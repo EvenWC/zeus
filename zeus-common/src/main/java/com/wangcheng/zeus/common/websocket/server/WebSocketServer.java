@@ -15,8 +15,8 @@ import java.util.UUID;
  * @date: 2018/11/22 23:22
  * @description:
  */
-@Component
-@ServerEndpoint(value = "/websocket")
+//@Component
+//@ServerEndpoint(value = "/websocket")
 public class  WebSocketServer {
 
     public static final Map<String,Session> sessions = Maps.newHashMap();
