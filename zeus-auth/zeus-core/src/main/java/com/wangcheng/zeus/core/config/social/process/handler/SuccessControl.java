@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SuccessControl {
 
 
-    @RequestMapping("success")
+    @RequestMapping("success.do")
     public String success(HttpServletRequest request, HttpServletResponse response, Model model){
         Object auth = request.getAttribute("auth");
         System.out.println(auth);

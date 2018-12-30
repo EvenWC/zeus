@@ -24,6 +24,6 @@ public class SocialAuthSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         request.setAttribute("auth",authentication.getDetails());
-        request.getRequestDispatcher("/success").forward(request,response);
+        request.getRequestDispatcher("/success.do").forward(request,response);
     }
 }
